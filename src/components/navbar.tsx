@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const menuItems = [
   { label: "INÍCIO", href: "/" },
@@ -12,10 +12,10 @@ const menuItems = [
   { label: "COMO ATUAMOS", href: "#" },
   { label: "PARCEIROS", href: "#" },
   { label: "CONTATO", href: "#" },
-]
+];
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-green-800 text-white">
@@ -44,12 +44,17 @@ export function Navbar() {
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center justify-end space-x-4 md:w-1/4">
             <Link href="/auth/login">
-              <Button variant="outline" className="border-white text-white hover:bg-green-700 hover:text-white">
+              <Button
+                variant="outline"
+                className="border-white bg-white text-green-800 hover:bg-green-50 hover:text-green-800"
+              >
                 Entrar
               </Button>
             </Link>
             <Link href="/auth/register">
-              <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium">Cadastrar</Button>
+              <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium">
+                Cadastrar
+              </Button>
             </Link>
           </div>
 
@@ -68,7 +73,9 @@ export function Navbar() {
       <div
         className={cn(
           "md:hidden absolute w-full bg-green-800 transition-all duration-300 ease-in-out",
-          isMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0 overflow-hidden",
+          isMenuOpen
+            ? "max-h-screen opacity-100"
+            : "max-h-0 opacity-0 overflow-hidden"
         )}
       >
         <div className="container mx-auto px-4 py-4 space-y-4">
@@ -84,16 +91,21 @@ export function Navbar() {
           ))}
           <div className="flex flex-col space-y-2 pt-4 border-t border-green-700">
             <Link href="/auth/login" onClick={() => setIsMenuOpen(false)}>
-              <Button variant="outline" className="w-full border-white text-white hover:bg-green-700 hover:text-white">
+              <Button
+                variant="outline"
+                className="w-full border-white bg-white text-green-800 hover:bg-green-50 hover:text-green-800"
+              >
                 Entrar
               </Button>
             </Link>
             <Link href="/auth/register" onClick={() => setIsMenuOpen(false)}>
-              <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-medium">Cadastrar</Button>
+              <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-medium">
+                Cadastrar
+              </Button>
             </Link>
           </div>
         </div>
       </div>
     </header>
-  )
+  );
 }

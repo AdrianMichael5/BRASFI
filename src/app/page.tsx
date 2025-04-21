@@ -1,9 +1,11 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { Navbar } from "@/components/navbar"
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
+      <Navbar />
       {/* Hero Section */}
       <section className="relative h-[500px] overflow-hidden">
         <Image
