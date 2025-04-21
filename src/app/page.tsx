@@ -1,103 +1,198 @@
-import Image from "next/image";
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="relative h-[500px] overflow-hidden">
         <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
+          src="/placeholder.svg?height=500&width=1200"
+          alt="Imagem de fundo com natureza"
+          width={1200}
+          height={500}
+          className="absolute inset-0 w-full h-full object-cover brightness-75"
           priority
         />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="container relative z-10 mx-auto px-4 h-full flex flex-col justify-center">
+          <div className="max-w-3xl">
+            <div className="inline-block bg-red-600 text-white px-3 py-1 text-sm font-medium mb-4">
+              CONHEÇA O SEU FUTURO
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+              FORMANDO LÍDERES E VIABILIZANDO SOLUÇÕES
+            </h1>
+            <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium">CONHEÇA O BRASFI</Button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* About Section */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <Image
+                src="/placeholder.svg?height=400&width=600"
+                alt="Imagem institucional"
+                width={600}
+                height={400}
+                className="rounded-lg"
+              />
+            </div>
+            <div>
+              <div className="text-red-600 font-medium mb-2">CASE LIDERANÇA</div>
+              <p className="text-gray-800 text-lg">
+                Atuamos como catalisadores no desenvolvimento de lideranças e soluções em finanças e sustentabilidade.
+                Nosso objetivo é identificar e capacitar uma nova geração de líderes que impulsionem mudanças positivas,
+                contribuindo para um futuro mais sustentável e próspero.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Impact Metrics */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-red-600 font-medium mb-8">NOSSO IMPACTO</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            <div className="flex flex-col items-center text-center">
+              <div className="bg-white p-4 rounded-full mb-4 shadow-md">
+                <Image src="/placeholder.svg?height=50&width=50" alt="Ícone de pessoas" width={50} height={50} />
+              </div>
+              <div className="text-sm uppercase font-medium mb-2">Atuação Profissional</div>
+              <div className="text-3xl font-bold text-green-600 mb-2">+20</div>
+              <div className="text-xs text-gray-600">PROFISSIONAIS FORMADOS EM ATUAÇÃO PROFISSIONAL</div>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="bg-white p-4 rounded-full mb-4 shadow-md">
+                <Image src="/placeholder.svg?height=50&width=50" alt="Ícone de formação" width={50} height={50} />
+              </div>
+              <div className="text-sm uppercase font-medium mb-2">Formação</div>
+              <div className="text-3xl font-bold text-green-600 mb-2">+20</div>
+              <div className="text-xs text-gray-600">PESSOAS EM PROCESSO DE FORMAÇÃO</div>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="bg-white p-4 rounded-full mb-4 shadow-md">
+                <Image src="/placeholder.svg?height=50&width=50" alt="Ícone de impacto" width={50} height={50} />
+              </div>
+              <div className="text-sm uppercase font-medium mb-2">Eventos de Impacto</div>
+              <div className="text-3xl font-bold text-green-600 mb-2">+40</div>
+              <div className="text-xs text-gray-600">EVENTOS REALIZADOS COM LÍDERES NACIONAIS</div>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="bg-white p-4 rounded-full mb-4 shadow-md">
+                <Image src="/placeholder.svg?height=50&width=50" alt="Ícone de produção" width={50} height={50} />
+              </div>
+              <div className="text-sm uppercase font-medium mb-2">Produção Intelectual</div>
+              <div className="text-3xl font-bold text-green-600 mb-2">+10</div>
+              <div className="text-xs text-gray-600">PESQUISAS PUBLICADAS</div>
+            </div>
+            <div className="flex flex-col items-center text-center">
+              <div className="bg-white p-4 rounded-full mb-4 shadow-md">
+                <Image src="/placeholder.svg?height=50&width=50" alt="Ícone de mentoria" width={50} height={50} />
+              </div>
+              <div className="text-sm uppercase font-medium mb-2">Cursos e Mentorias</div>
+              <div className="text-3xl font-bold text-green-600 mb-2">+50</div>
+              <div className="text-xs text-gray-600">TREINAMENTOS REALIZADOS</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial */}
+      <section className="py-10 bg-green-700 text-white">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center">
+            <div className="hidden md:block">
+              <div className="bg-white rounded-full p-2 mr-4">
+                <Image
+                  src="/placeholder.svg?height=60&width=60"
+                  alt="Foto do depoimento"
+                  width={60}
+                  height={60}
+                  className="rounded-full"
+                />
+              </div>
+            </div>
+            <div className="flex-1">
+              <p className="italic mb-2">
+                "Estar parte deste rede implica muito mais que aprender e estar constantemente atento com o nível de
+                networking de outros líderes financeiros sustentáveis."
+              </p>
+              <p className="font-medium">Marcelo Gomes, CEO da XY</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-red-600 font-medium mb-8">PARCEIROS</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="flex justify-center">
+                <Image
+                  src={`/placeholder.svg?height=60&width=120&text=LOGO${i}`}
+                  alt={`Logo parceiro ${i}`}
+                  width={120}
+                  height={60}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative h-[300px] overflow-hidden">
+        <Image
+          src="/placeholder.svg?height=300&width=1200"
+          alt="Imagem de fundo"
+          width={1200}
+          height={300}
+          className="absolute inset-0 w-full h-full object-cover brightness-75"
+        />
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="container relative z-10 mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
+          <h2 className="text-3xl font-bold text-white mb-6">QUER FAZER PARTE?</h2>
+          <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium">CLIQUE AQUI!</Button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-8">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <h3 className="text-sm font-medium uppercase mb-4">Contato</h3>
+              <p className="text-sm text-gray-400">contato@brasfi.com.br</p>
+            </div>
+            <div>
+              <h3 className="text-sm font-medium uppercase mb-4">Endereço</h3>
+              <p className="text-sm text-gray-400">São Paulo, SP - Brasil</p>
+            </div>
+            <div>
+              <h3 className="text-sm font-medium uppercase mb-4">Redes Sociais</h3>
+              <div className="flex space-x-4">
+                {["facebook", "linkedin", "twitter", "instagram"].map((social) => (
+                  <a key={social} href="#" className="text-gray-400 hover:text-white">
+                    <span className="sr-only">{social}</span>
+                    <div className="w-6 h-6 bg-gray-700 rounded-full"></div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-800 pt-6 text-center text-sm text-gray-500">
+            <p>BRASFI</p>
+            <p className="mt-2">© {new Date().getFullYear()} Todos os direitos reservados</p>
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
