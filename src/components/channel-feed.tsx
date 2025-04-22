@@ -267,26 +267,19 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
         <div className="space-y-6">
           {messages.map((message) => (
             <div key={message.id} className="flex">
+              {/* Avatar com inicial */}
               <div className="mr-3 flex-shrink-0">
-                {message.user.avatar ? (
-                  <Image
-                    src={message.user.avatar || "/placeholder.svg"}
-                    alt={message.user.name}
-                    width={36}
-                    height={36}
-                    className="rounded-full"
-                  />
-                ) : (
-                  <div
-                    className="w-9 h-9 rounded-full flex items-center justify-center text-white font-medium"
-                    style={{
-                      backgroundColor: getRandomColor(message.user.name),
-                    }}
-                  >
-                    {getInitials(message.user.name)}
-                  </div>
-                )}
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-white font-medium"
+                  style={{
+                    backgroundColor: getRandomColor(message.user.name),
+                  }}
+                >
+                  {getInitials(message.user.name)}
+                </div>
               </div>
+
+              {/* Conteúdo da mensagem */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-baseline">
                   <span className="font-medium text-gray-900 mr-2">
@@ -300,6 +293,7 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
                   </span>
                 </div>
                 <p className="text-gray-800 mt-1">{message.content}</p>
+
                 {message.image && (
                   <div className="mt-2 max-w-md">
                     <Image
