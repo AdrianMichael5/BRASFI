@@ -119,7 +119,7 @@ export function AppSidebar({
     <div className="w-64 bg-[#f9f9f9] border-r border-gray-200 flex flex-col h-full">
       {/* Workspace Header */}
       <div className="p-3 border-b border-gray-200">
-        <h2 className="font-bold text-lg text-gray-800">BRASFI Space</h2>
+        <h2 className="font-bold text-lg text-gray-800">BRASFI Connect</h2>
       </div>
 
       {/* Channels List */}
