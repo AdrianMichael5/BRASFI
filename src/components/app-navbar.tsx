@@ -71,7 +71,7 @@ export function AppNavbar({ user }: AppNavbarProps) {
           <DropdownMenuContent align="end" className="w-56">
             <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={() => router.push("/app/profile")}>
               <User className="mr-2 h-4 w-4" />
               <span>Perfil</span>
             </DropdownMenuItem>

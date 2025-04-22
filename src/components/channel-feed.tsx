@@ -157,7 +157,7 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
         {
           id: "2",
           content:
-            "Olá Mariam e equipe, estou ansioso para este projeto. Qual é o escopo do nosso trabalho de design?",
+            "estou ansioso para este projeto. Qual é o escopo do nosso trabalho de design?",
           timestamp: Date.now() - 3600000, // 1 hora atrás
           user: {
             name: "Miller",

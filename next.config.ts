@@ -1,4 +1,5 @@
-import type { NextConfig } from "next";
+// Remova o `import type` e use a importação direta
+import { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
