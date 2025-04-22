@@ -1,5 +1,7 @@
 "use client";
 
+import type React from "react";
+
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
@@ -7,15 +9,28 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const menuItems = [
-  { label: "INÍCIO", href: "/" },
-  { label: "SOBRE NÓS", href: "#" },
-  { label: "COMO ATUAMOS", href: "#" },
-  { label: "PARCEIROS", href: "#" },
-  { label: "CONTATO", href: "#" },
+  { label: "INÍCIO", href: "#hero" },
+  { label: "COMO ATUAMOS", href: "#about" },
+  { label: "NOSSO IMPACTO", href: "#impact" },
+  { label: "PARCEIROS", href: "#partners" },
+  { label: "CONTATO", href: "#footer" },
 ];
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Função para navegação suave
+  const scrollToSection = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-green-800 text-white">
@@ -31,13 +46,14 @@ export function Navbar() {
           {/* Desktop Navigation - Centered */}
           <nav className="hidden md:flex items-center justify-center space-x-6 md:w-2/4">
             {menuItems.map((item) => (
-              <Link
+              <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => scrollToSection(e, item.href)}
                 className="text-sm font-medium hover:text-green-200 transition-colors"
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
           </nav>
 
@@ -46,13 +62,13 @@ export function Navbar() {
             <Link href="/auth/login">
               <Button
                 variant="outline"
-                className="border-white bg-white text-green-800 hover:bg-green-50 hover:text-green-800"
+                className="border-white bg-white text-green-800 hover:bg-green-50 hover:text-green-800 transition-all hover:scale-105"
               >
                 Entrar
               </Button>
             </Link>
             <Link href="/auth/register">
-              <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium">
+              <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium transition-all hover:scale-105">
                 Cadastrar
               </Button>
             </Link>
@@ -80,26 +96,26 @@ export function Navbar() {
       >
         <div className="container mx-auto px-4 py-4 space-y-4">
           {menuItems.map((item) => (
-            <Link
+            <a
               key={item.label}
               href={item.href}
+              onClick={(e) => scrollToSection(e, item.href)}
               className="block text-sm font-medium hover:text-green-200 transition-colors py-2"
-              onClick={() => setIsMenuOpen(false)}
             >
               {item.label}
-            </Link>
+            </a>
           ))}
           <div className="flex flex-col space-y-2 pt-4 border-t border-green-700">
             <Link href="/auth/login" onClick={() => setIsMenuOpen(false)}>
               <Button
                 variant="outline"
-                className="w-full border-white bg-white text-green-800 hover:bg-green-50 hover:text-green-800"
+                className="w-full border-white bg-white text-green-800 hover:bg-green-50 hover:text-green-800 transition-all hover:scale-105"
               >
                 Entrar
               </Button>
             </Link>
             <Link href="/auth/register" onClick={() => setIsMenuOpen(false)}>
-              <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-medium">
+              <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-black font-medium transition-all hover:scale-105">
                 Cadastrar
               </Button>
             </Link>

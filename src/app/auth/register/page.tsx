@@ -178,7 +178,11 @@ export default function RegisterPage() {
                   required
                 />
               </div>
-              <Button type="submit" className="w-full" disabled={isLoading}>
+              <Button
+                type="submit"
+                className="w-full bg-green-600 hover:bg-green-700"
+                disabled={isLoading}
+              >
                 {isLoading ? "Criando conta..." : "Cadastrar"}
               </Button>
             </form>

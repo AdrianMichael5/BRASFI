@@ -13,6 +13,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { getInitials, getRandomColor } from "@/lib/utils";
 
 interface Message {
   id: string;
@@ -157,7 +158,7 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
         {
           id: "2",
           content:
-            "estou ansioso para este projeto. Qual é o escopo do nosso trabalho de design?",
+            "Olá Mariam e equipe, estou ansioso para este projeto. Qual é o escopo do nosso trabalho de design?",
           timestamp: Date.now() - 3600000, // 1 hora atrás
           user: {
             name: "Miller",
@@ -267,13 +268,24 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
           {messages.map((message) => (
             <div key={message.id} className="flex">
               <div className="mr-3 flex-shrink-0">
-                <Image
-                  src={message.user.avatar || "/placeholder.svg"}
-                  alt={message.user.name}
-                  width={36}
-                  height={36}
-                  className="rounded-full"
-                />
+                {message.user.avatar ? (
+                  <Image
+                    src={message.user.avatar || "/placeholder.svg"}
+                    alt={message.user.name}
+                    width={36}
+                    height={36}
+                    className="rounded-full"
+                  />
+                ) : (
+                  <div
+                    className="w-9 h-9 rounded-full flex items-center justify-center text-white font-medium"
+                    style={{
+                      backgroundColor: getRandomColor(message.user.name),
+                    }}
+                  >
+                    {getInitials(message.user.name)}
+                  </div>
+                )}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-baseline">

@@ -14,6 +14,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
+import { getInitials, getRandomColor } from "@/lib/utils";
 
 interface AppNavbarProps {
   user: {
@@ -33,14 +34,21 @@ export function AppNavbar({ user }: AppNavbarProps) {
     router.push("/");
   };
 
+  // Gerar cor aleatória e iniciais para o avatar
+  const userInitials = getInitials(user.name);
+  const avatarColor = getRandomColor(user.email);
+
   return (
     <header className="h-14 border-b border-gray-200 bg-white px-4 flex items-center justify-between">
       <div className="flex items-center">
         <Link href="/app" className="flex items-center gap-2 mr-4">
           <div className="font-bold text-xl text-blue-600">BRASFI</div>
         </Link>
+      </div>
 
-        <div className="hidden md:flex items-center relative max-w-md w-64">
+      {/* Barra de pesquisa centralizada */}
+      <div className="flex-1 flex justify-center max-w-xl mx-auto">
+        <div className="relative w-full">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
           <Input
             placeholder="Buscar..."
@@ -62,8 +70,11 @@ export function AppNavbar({ user }: AppNavbarProps) {
                   className="rounded-full"
                 />
               ) : (
-                <div className="w-9 h-9 rounded-full bg-blue-500 flex items-center justify-center text-white font-medium">
-                  {user.name.charAt(0).toUpperCase()}
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-white font-medium"
+                  style={{ backgroundColor: avatarColor }}
+                >
+                  {userInitials}
                 </div>
               )}
             </Button>
