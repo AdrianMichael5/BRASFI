@@ -119,7 +119,7 @@ export function AppSidebar({
     <div className="w-64 bg-[#f9f9f9] border-r border-gray-200 flex flex-col h-full">
       {/* Workspace Header */}
       <div className="p-3 border-b border-gray-200">
-        <h2 className="font-bold text-lg text-gray-800">BRASFI Space</h2>
+        <h2 className="font-bold text-lg text-gray-800">BRASFI Connect</h2>
       </div>
 
       {/* Channels List */}
@@ -241,22 +241,6 @@ export function AppSidebar({
           </Dialog>
         </div>
       )}
-
-      {/* User Section */}
-      <div className="p-3 border-t border-gray-200 bg-gray-50">
-        <div className="flex items-center">
-          <div className="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center text-white font-medium mr-2">
-            {user.name.charAt(0).toUpperCase()}
-          </div>
-          <div className="flex-1 truncate">
-            <div className="text-sm font-medium">{user.name}</div>
-            <div className="text-xs text-gray-500 truncate">{user.email}</div>
-          </div>
-          <Button variant="ghost" size="icon" className="h-8 w-8">
-            <Settings className="h-4 w-4" />
-          </Button>
-        </div>
-      </div>
     </div>
   );
 }

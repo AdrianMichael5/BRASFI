@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { LogOut, Search, Settings, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,7 +19,7 @@ interface AppNavbarProps {
   user: {
     name: string;
     email: string;
-    avatar: string;
+    avatar?: string; // ignorado, mas mantido por interface
     isAdmin: boolean;
   };
 }
@@ -34,7 +33,6 @@ export function AppNavbar({ user }: AppNavbarProps) {
     router.push("/");
   };
 
-  // Gerar cor aleatória e iniciais para o avatar
   const userInitials = getInitials(user.name);
   const avatarColor = getRandomColor(user.email);
 
@@ -57,30 +55,31 @@ export function AppNavbar({ user }: AppNavbarProps) {
         </div>
       </div>
 
-      <div className="flex items-center gap-2">
+      {/* Perfil do usuário com dropdown */}
+      <div className="flex items-center gap-3">
+        <div className="text-right">
+          <div className="text-sm font-medium text-gray-800">{user.name}</div>
+          <div className="text-xs text-gray-500">{user.email}</div>
+        </div>
+
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="relative h-9 w-9 rounded-full">
-              {user.avatar ? (
-                <Image
-                  src={user.avatar || "/placeholder.svg"}
-                  alt={user.name}
-                  width={36}
-                  height={36}
-                  className="rounded-full"
-                />
-              ) : (
-                <div
-                  className="w-9 h-9 rounded-full flex items-center justify-center text-white font-medium"
-                  style={{ backgroundColor: avatarColor }}
-                >
-                  {userInitials}
-                </div>
-              )}
+            <Button
+              variant="ghost"
+              className="relative h-9 w-9 p-0 rounded-full"
+            >
+              <div
+                className="w-9 h-9 rounded-full flex items-center justify-center text-white font-medium"
+                style={{ backgroundColor: avatarColor }}
+              >
+                {userInitials}
+              </div>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
+            <DropdownMenuLabel className="bg-white text-black">
+              Minha Conta
+            </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => router.push("/app/profile")}>
               <User className="mr-2 h-4 w-4" />

@@ -340,6 +340,7 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
           <Button
             type="submit"
             size="icon"
+            className="bg-green-400"
             disabled={channel.isAnnouncement && !currentUser?.isAdmin}
           >
             <Send className="h-4 w-4" />
