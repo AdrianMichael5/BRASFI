@@ -4,6 +4,8 @@ import { Navbar } from "@/components/navbar";
 import { CountUp } from "@/components/count-up";
 import { Briefcase, GraduationCap, Leaf, Brain, Users } from "lucide-react";
 
+const logos = ["logo1.png", "logo2.svg", "logo3.jpg", "logo4.svg"];
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
@@ -164,12 +166,12 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-red-600 font-medium mb-8">PARCEIROS</div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
-            {[1, 2, 3, 4].map((i) => (
+            {logos.map((logo, i) => (
               <div key={i} className="flex justify-center">
                 <Image
-                  src={`/placeholder.svg?height=60&width=120&text=LOGO${i}`}
-                  alt={`Logo parceiro ${i}`}
-                  width={120}
+                  src={`/parceiros/${logo}`}
+                  alt={`Logo parceiro ${i + 1}`}
+                  width={140}
                   height={60}
                 />
               </div>
