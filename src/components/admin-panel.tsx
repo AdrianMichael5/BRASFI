@@ -13,7 +13,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Switch } from "@/components/ui/switch";
+import { Switch } from "@headlessui/react";
 import { Trash, Shield, MessageSquareX } from "lucide-react";
 import { getInitials, getRandomColor } from "@/lib/utils";
 
@@ -361,9 +361,7 @@ export function AdminPanel() {
                             <td className="p-3">
                               <Switch
                                 checked={user.isAdmin}
-                                onCheckedChange={() =>
-                                  toggleAdminStatus(user.email)
-                                }
+                                onChange={() => toggleAdminStatus(user.email)}
                               />
                             </td>
                             <td className="p-3 text-right">
@@ -448,19 +446,39 @@ export function AdminPanel() {
                   </div>
 
                   <div className="flex items-center space-x-2">
-                    <Switch 
+                    <Switch
                       id="isAnnouncement"
                       checked={isAnnouncement}
-                      onCheckedChange={setIsAnnouncement}
-                    />
-                    <Label htmlFor="isAnnouncement">
+                      onChange={setIsAnnouncement}
+                      className={`relative inline-flex h-[22px] w-[42px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
+                        isAnnouncement ? "bg-green-500" : "bg-gray-300"
+                      }`}
+                    >
+                      <span className="sr-only">Canal de Anúncio</span>
+                      <span
+                        className={`pointer-events-none inline-block h-[18px] w-[18px] transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
+                          isAnnouncement
+                            ? "translate-x-[20px]"
+                            : "translate-x-[0.3px]"
+                        }`}
+                      />
+                    </Switch>
+                    <Label
+                      htmlFor="isAnnouncement"
+                      className="text-sm font-medium text-gray-900"
+                    >
                       Canal de Anúncios (somente admins podem postar)
                     </Label>
                   </div>
                 </div>
               </CardContent>
               <CardFooter>
-                <Button className="hover:bg-blue-50 text-blue-600 border-2 border-blue-200 cursor-pointer" onClick={handleCreateChannel}>+ Criar Canal</Button>
+                <Button
+                  className="hover:bg-blue-50 text-blue-600 border-2 border-blue-200 cursor-pointer"
+                  onClick={handleCreateChannel}
+                >
+                  + Criar Canal
+                </Button>
               </CardFooter>
             </Card>
 
