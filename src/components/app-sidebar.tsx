@@ -177,21 +177,21 @@ export function AppSidebar({
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full flex items-center justify-center"
+                className="w-full flex items-center justify-center hover:bg-blue-50 active:bg-blue-100 text-blue-600 border-blue-200"
               >
                 <Plus className="h-4 w-4 mr-2" />
                 Adicionar Canal
-              </Button>
+              </Button >
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="bg-white ">
               <DialogHeader>
                 <DialogTitle>Criar Novo Canal</DialogTitle>
                 <DialogDescription>
                   Adicione um novo canal à sua área de trabalho.
                 </DialogDescription>
               </DialogHeader>
-              <div className="grid gap-4 py-4">
-                <div className="grid gap-2">
+              <div className="grid gap-4 py-4 ">
+                <div className="grid gap-2 ">
                   <Label htmlFor="category">Categoria</Label>
                   <Select
                     value={selectedCategory}
@@ -200,7 +200,7 @@ export function AppSidebar({
                     <SelectTrigger>
                       <SelectValue placeholder="Selecione uma categoria" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-white">
                       {categories.map((category) => (
                         <SelectItem key={category.id} value={category.id}>
                           {category.name}
@@ -235,7 +235,7 @@ export function AppSidebar({
                 >
                   Cancelar
                 </Button>
-                <Button onClick={handleCreateChannel}>Criar Canal</Button>
+                <Button className="bg-blue-600 text-white" onClick={handleCreateChannel}>Criar Canal</Button>
               </DialogFooter>
             </DialogContent>
           </Dialog>
