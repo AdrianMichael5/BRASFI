@@ -177,7 +177,7 @@ export function AppSidebar({
               <Button
                 variant="outline"
                 size="sm"
-                className="w-full flex items-center justify-center hover:bg-blue-50 active:bg-blue-100 text-blue-600 border-blue-200"
+                className="w-full flex items-center justify-center hover:bg-blue-50 active:bg-blue-100 text-blue-600 border-blue-200 cursor-pointer"
               >
                 <Plus className="h-4 w-4 mr-2" />
                 Adicionar Canal
@@ -229,13 +229,13 @@ export function AppSidebar({
                 </div>
               </div>
               <DialogFooter>
-                <Button
+                <Button className="cursor-pointer"
                   variant="outline"
                   onClick={() => setIsDialogOpen(false)}
                 >
                   Cancelar
                 </Button>
-                <Button className="bg-blue-600 text-white" onClick={handleCreateChannel}>Criar Canal</Button>
+                <Button className="bg-blue-600 text-white cursor-pointer" onClick={handleCreateChannel}>Criar Canal</Button>
               </DialogFooter>
             </DialogContent>
           </Dialog>

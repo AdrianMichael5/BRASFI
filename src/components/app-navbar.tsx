@@ -63,10 +63,10 @@ export function AppNavbar({ user }: AppNavbarProps) {
           <Button
             variant="outline"
             size="sm"
-            className="mr-2 text-blue-600"
+            className="mr-2 text-blue-600 cursor-pointer"
             onClick={() => router.push("/app/admin")}
           >
-            <Shield className="h-4 w-4 mr-1" />
+            <Shield className="h-4 w-4 mr-1 cursor-pointer" />
             Admin
           </Button>
         )}
