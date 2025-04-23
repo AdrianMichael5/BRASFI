@@ -448,7 +448,7 @@ export function AdminPanel() {
                   </div>
 
                   <div className="flex items-center space-x-2">
-                    <Switch
+                    <Switch 
                       id="isAnnouncement"
                       checked={isAnnouncement}
                       onCheckedChange={setIsAnnouncement}
@@ -460,7 +460,7 @@ export function AdminPanel() {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button onClick={handleCreateChannel}>Criar Canal</Button>
+                <Button className="hover:bg-blue-50 text-blue-600 border-2 border-blue-200 cursor-pointer" onClick={handleCreateChannel}>+ Criar Canal</Button>
               </CardFooter>
             </Card>
 

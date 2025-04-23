@@ -42,7 +42,7 @@ export function AppNavbar({ user }: AppNavbarProps) {
     <header className="h-14 border-b border-gray-200 bg-white px-4 flex items-center justify-between">
       <div className="flex items-center">
         <Link href="/app" className="flex items-center gap-2 mr-4">
-          <div className="font-bold text-xl text-blue-600">BRASFI</div>
+          <div className="font-bold text-xl text-green-500">BRASFI</div>
         </Link>
       </div>
 
