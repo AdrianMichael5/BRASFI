@@ -112,7 +112,7 @@ export default function RegisterPage() {
           <Link href="/">
             <Button variant="outline" className="gap-2">
               <ArrowLeft size={16} />
-              Voltar para Home
+              Voltar para o Início
             </Button>
           </Link>
         </div>
@@ -163,6 +163,7 @@ export default function RegisterPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
+                  placeholder="••••••"
                 />
                 <p className="text-xs text-gray-500">
                   A senha deve ter pelo menos 6 caracteres
@@ -176,6 +177,7 @@ export default function RegisterPage() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   required
+                  placeholder="••••••"
                 />
               </div>
               <Button

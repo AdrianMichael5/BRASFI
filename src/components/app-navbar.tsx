@@ -79,7 +79,7 @@ export function AppNavbar({ user }: AppNavbarProps) {
           <DropdownMenuTrigger asChild>
             <Button
               variant="ghost"
-              className="flex items-center gap-4 px-2 py-1 rounded-md hover:bg-gray-100 transition"
+              className="flex items-center gap-4 px-2 py-1 rounded-md hover:bg-blue-100 transition"
             >
               {/* Nome e email */}
               <div className="text-left hidden sm:block">
@@ -90,9 +90,9 @@ export function AppNavbar({ user }: AppNavbarProps) {
                   {user.email}
                 </div>
               </div>
-              {/* Bolinha com inicial e cor aleatória */}
+              {/* Inicial e cor do usuario */}
               <div
-                className="h-10 w-10 flex items-center justify-center rounded-full text-white text-lg font-bold"
+                className="h-9 w-9 flex items-center justify-center rounded-full text-white text-lg font-bold"
                 style={{ backgroundColor: avatarColor }}
               >
                 {userInitials}

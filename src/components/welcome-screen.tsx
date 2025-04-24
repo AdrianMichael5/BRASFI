@@ -22,8 +22,7 @@ export function WelcomeScreen() {
           Bem-vindo à Plataforma BRASFI
         </h1>
         <p className="text-gray-600 mb-6">
-          Selecione um canal na barra lateral para começar a conversar com sua
-          equipe.
+          Selecione um canal na barra lateral para começar a conversar com outros membros.
         </p>
         <div className="p-6 bg-blue-50 rounded-lg border border-blue-100 text-left">
           <h2 className="text-lg font-medium text-blue-800 mb-2">
@@ -34,8 +33,7 @@ export function WelcomeScreen() {
               • Canais são organizados por categorias para facilitar a navegação
             </li>
             <li>
-              • Use o canal <strong>general</strong> para discussões gerais da
-              equipe
+              • Use o canal <strong>general</strong> para discussões gerais sobre a BRASFI.
             </li>
             <li>
               • Canais de projeto são específicos para discussões de trabalho
