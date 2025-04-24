@@ -39,20 +39,25 @@ export function AppNavbar({ user }: AppNavbarProps) {
   const avatarColor = getRandomColor(user.email);
 
   return (
-    <header className="h-14 border-b border-gray-200 bg-white px-4 flex items-center justify-between">
+    <header className="h-14 border-b border-green-800 bg-white px-4 flex items-center justify-between">
       <div className="flex items-center">
         <Link href="/app" className="flex items-center gap-2 mr-4">
-          <div className="font-bold text-xl text-green-500">BRASFI</div>
+          <Image
+            src="/LOGOBRASFI.png"
+            alt="Logo BRASFI"
+            width={32}
+            height={32}
+            className="h-8 w-auto"
+          />
         </Link>
       </div>
-
       {/* Barra de pesquisa centralizada */}
       <div className="flex-1 flex justify-center max-w-xl mx-auto">
         <div className="relative w-full">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
           <Input
             placeholder="Buscar..."
-            className="pl-9 h-9 bg-gray-50 border-gray-200 focus-visible:ring-blue-500"
+            className="pl-9 h-9 bg-gray-50 border-green-800 focus-visible:ring-blue-500"
           />
         </div>
       </div>
@@ -92,10 +97,10 @@ export function AppNavbar({ user }: AppNavbarProps) {
               >
                 {userInitials}
               </div>
-            </Button >
-          </DropdownMenuTrigger >
+            </Button>
+          </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56 bg-white">
-            <DropdownMenuLabel >Minha Conta</DropdownMenuLabel>
+            <DropdownMenuLabel>Minha Conta</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => router.push("/app/profile")}>
               <User className="mr-2 h-4 w-4" />

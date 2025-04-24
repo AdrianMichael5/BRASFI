@@ -4,6 +4,7 @@ import type React from "react";
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -38,11 +39,15 @@ export function Navbar() {
         <div className="flex h-16 items-center justify-between md:justify-start">
           {/* Logo */}
           <div className="flex items-center md:w-1/4">
-            <Link href="/" className="text-xl font-bold">
-              BRASFI
+            <Link href="/">
+              <Image
+                src="/LOGOBRASFI.png"
+                alt="BRASFILogo"
+                width={100}
+                height={100}
+              />
             </Link>
           </div>
-
           {/* Desktop Navigation - Centered */}
           <nav className="hidden md:flex items-center justify-center space-x-6 md:w-2/4">
             {menuItems.map((item) => (

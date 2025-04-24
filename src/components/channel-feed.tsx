@@ -231,7 +231,7 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
   return (
     <div className="flex flex-col h-full bg-white">
       {/* Channel Header */}
-      <div className="flex items-center px-4 py-3 border-b border-gray-200">
+      <div className="flex items-center px-4 py-3 border-b border-green-800">
         <div className="flex-1">
           <div className="flex items-center">
             <h1 className="text-lg font-semibold text-gray-800">
@@ -334,7 +334,7 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
           <Button
             type="submit"
             size="icon"
-            className="bg-green-400"
+            className="bg-blue-500"
             disabled={channel.isAnnouncement && !currentUser?.isAdmin}
           >
             <Send className="h-4 w-4" />

@@ -116,10 +116,10 @@ export function AppSidebar({
   };
 
   return (
-    <div className="w-64 bg-[#f9f9f9] border-r border-gray-200 flex flex-col h-full">
+    <div className="w-64 bg-[#f9f9f9] border-r border-green-800 flex flex-col h-full">
       {/* Workspace Header */}
-      <div className="p-3 border-b border-gray-200">
-        <h2 className="font-bold text-lg text-blue-600">BRASFI Connect</h2>
+      <div className="p-3 border-b border-green-800">
+        <h2 className="font-bold text-lg text-green-800">BRASFI Connect</h2>
       </div>
 
       {/* Channels List */}
@@ -128,7 +128,7 @@ export function AppSidebar({
           {categories.map((category) => (
             <div key={category.id} className="mb-4">
               <button
-                className="flex items-center w-full text-xs font-semibold text-gray-500 hover:text-gray-700 mb-1 px-2"
+                className="flex items-center w-full text-xs font-semibold text-gray-500 hover:text-green-800 mb-1 px-2"
                 onClick={() => toggleCategory(category.id)}
               >
                 {expandedCategories[category.id] ? (
@@ -147,7 +147,7 @@ export function AppSidebar({
                       className={cn(
                         "flex items-center w-full text-sm px-2 py-1 rounded-md",
                         currentChannelId === channel.id
-                          ? "bg-blue-100 text-blue-700"
+                          ? "bg-blue-100 text-green-800"
                           : "text-gray-700 hover:bg-gray-100"
                       )}
                       onClick={() => setCurrentChannelId(channel.id)}
@@ -171,7 +171,7 @@ export function AppSidebar({
 
       {/* Add Channel Button */}
       {user.isAdmin && (
-        <div className="p-3 border-t border-gray-200">
+        <div className="p-3 border-t border-green-800">
           <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
             <DialogTrigger asChild>
               <Button
