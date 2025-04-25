@@ -1,10 +1,8 @@
 # 🌱 BRASFI Connect - Plataforma de Comunicação e Conteúdo Sustentável
 
-Bem-vindo ao **BRASFI Connect**! Este projeto tem como objetivo fornecer uma plataforma digital para a **BRASFI**, uma empresa que promove **economia sustentável**. A aplicação permitirá que a empresa **se comunique com seus membros**, publique **aulas, vídeos, lives e outros conteúdos educativos**.
+Bem-vindo ao  repositório da **BRASFI**! Este projeto tem como objetivo fornecer uma plataforma digital para a **BRASFI**, uma empresa que promove **economia sustentável**. A aplicação permitirá que a empresa **se comunique com seus membros**, publique **aulas, vídeos, lives e outros conteúdos educativos**.
 
-![image](https://github.com/user-attachments/assets/bfcb6108-4f4e-4867-9756-26e86c89b253)
-
-## 🌐 BRASFI Connect
+## 🌐 BRASFI
 
 [![Vercel](https://img.shields.io/badge/BRASFI-00AA00?style=for-the-badge&logo=vercel&logoColor=white)](https://brasfi-connect.vercel.app)
 
@@ -15,19 +13,6 @@ Bem-vindo ao **BRASFI Connect**! Este projeto tem como objetivo fornecer uma pla
 ✔️ **Sistema de lives e eventos** 🎥 - Divulgação de transmissões ao vivo para engajamento dos membros.  
 ✔️ **Área de aprendizado** 📚 - Organização de materiais para estudos sobre sustentabilidade.  
 
-![image](https://github.com/user-attachments/assets/bfcb6108-4f4e-4867-9756-26e86c89b253)
-
-<details>
-
-<summary>📧 SR1</summary>
-
-### 📄 Jira Backlog
-![image](https://github.com/user-attachments/assets/3b9d6e92-5b3f-4b39-9e06-67a1f862c195)
-
-
-</details>
-
-![image](https://github.com/user-attachments/assets/bfcb6108-4f4e-4867-9756-26e86c89b253)
 
 ## 🛠️ Tecnologias Utilizadas
 
