@@ -136,6 +136,7 @@ export default function RegisterPage() {
               <div className="space-y-2">
                 <Label htmlFor="name">Nome completo</Label>
                 <Input
+                  className="focus:ring-green-600 border border-gray-300"
                   id="name"
                   type="text"
                   placeholder="Seu nome"
@@ -147,6 +148,7 @@ export default function RegisterPage() {
               <div className="space-y-2">
                 <Label htmlFor="email">E-mail</Label>
                 <Input
+                  className="focus:ring-green-600 border border-gray-300"
                   id="email"
                   type="email"
                   placeholder="seu@email.com"
@@ -158,6 +160,7 @@ export default function RegisterPage() {
               <div className="space-y-2">
                 <Label htmlFor="password">Senha</Label>
                 <Input
+                  className="focus:ring-green-600 border border-gray-300"
                   id="password"
                   type="password"
                   value={password}
@@ -172,6 +175,7 @@ export default function RegisterPage() {
               <div className="space-y-2">
                 <Label htmlFor="confirmPassword">Confirmar senha</Label>
                 <Input
+                  className="focus:ring-green-600 border border-gray-300"
                   id="confirmPassword"
                   type="password"
                   value={confirmPassword}
@@ -182,7 +186,7 @@ export default function RegisterPage() {
               </div>
               <Button
                 type="submit"
-                className="w-full bg-green-600 hover:bg-green-700"
+                className="w-full bg-green-600 hover:bg-green-700 cursor-pointer"
                 disabled={isLoading}
               >
                 {isLoading ? "Criando conta..." : "Cadastrar"}

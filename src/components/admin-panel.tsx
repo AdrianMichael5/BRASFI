@@ -15,7 +15,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Switch } from "@headlessui/react";
 import { Trash, Shield, MessageSquareX } from "lucide-react";
-import { getInitials, getRandomColor } from "@/lib/utils";
+import { cn, getInitials, getRandomColor } from "@/lib/utils";
 
 interface User {
   name: string;
@@ -319,9 +319,9 @@ export function AdminPanel() {
 
         {/* Gerenciamento de Usuários */}
         <TabsContent value="users">
-          <Card>
+          <Card className="shadow-lg">
             <CardHeader>
-              <CardTitle>Gerenciar Usuários</CardTitle>
+              <CardTitle className="text-xl">Gerenciar Usuários</CardTitle>
               <CardDescription>
                 Promova ou rebaixe usuários do sistema.
               </CardDescription>
@@ -329,39 +329,49 @@ export function AdminPanel() {
             <CardContent>
               <div className="space-y-4">
                 {users.length === 0 ? (
-                  <p>Nenhum usuário encontrado.</p>
+                  <p className="text-gray-500">Nenhum usuário encontrado.</p>
                 ) : (
-                  <div className="border rounded-md">
+                  <div className="border border-gray-200 rounded-md overflow-hidden">
                     <table className="w-full">
                       <thead>
-                        <tr className="border-b">
-                          <th className="text-left p-3">Usuário</th>
-                          <th className="text-left p-3">Email</th>
-                          <th className="text-left p-3">Admin</th>
-                          <th className="text-right p-3">Ações</th>
+                        <tr className="bg-gray-50 border-b border-gray-200">
+                          <th className="text-left p-3 text-gray-700">
+                            Usuário
+                          </th>
+                          <th className="text-left p-3 text-gray-700">Email</th>
+                          <th className="text-left p-3 text-gray-700">Admin</th>
+                          <th className="text-right p-3 text-gray-700">
+                            Ações
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
                         {users.map((user) => (
-                          <tr key={user.email} className="border-b">
+                          <tr
+                            key={user.email}
+                            className="border-b border-gray-200 hover:bg-gray-50"
+                          >
                             <td className="p-3 flex items-center">
                               <div
-                                className="w-8 h-8 rounded-full flex items-center justify-center text-white font-medium mr-2"
+                                className="w-8 h-8 rounded-full flex items-center justify-center text-white font-medium mr-2 ring-2 ring-blue-200"
                                 style={{
                                   backgroundColor: getRandomColor(user.email),
                                 }}
                               >
                                 {getInitials(user.name || user.email)}
                               </div>
-                              <span>
+                              <span className="text-gray-800">
                                 {user.name || user.email.split("@")[0]}
                               </span>
                             </td>
-                            <td className="p-3">{user.email}</td>
+                            <td className="p-3 text-gray-600">{user.email}</td>
                             <td className="p-3">
                               <Switch
                                 checked={user.isAdmin}
-                                onChange={() => toggleAdminStatus(user.email)}
+                                onChange={() =>
+                                  toggleAdminStatus(user.email)
+                                }
+                                className="data-[state=checked]:bg-blue-600 data-[state=unchecked]:bg-gray-300"
                               />
                             </td>
                             <td className="p-3 text-right">
@@ -370,10 +380,16 @@ export function AdminPanel() {
                                   user.isAdmin ? "destructive" : "default"
                                 }
                                 size="sm"
+                                className={cn(
+                                  "flex items-center gap-1 font-medium transition-all duration-200 ease-in-out",
+                                  user.isAdmin
+                                    ? "bg-red-600 text-white hover:bg-red-700 hover:shadow-lg hover:scale-105 focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                                    : "bg-blue-600 text-white border border-blue-600 hover:bg-blue-700 hover:shadow-lg hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                                )}
                                 onClick={() => toggleAdminStatus(user.email)}
                               >
                                 {user.isAdmin ? (
-                                  <>Remover Admin</>
+                                  "Remover Admin"
                                 ) : (
                                   <>
                                     <Shield className="h-4 w-4 mr-1" />
@@ -525,13 +541,17 @@ export function AdminPanel() {
                                   )}
                                 </div>
                                 <Button
+                                  className="bg-blue-500 text-white rounded-md px-4 h-10 flex items-center gap-2 transition duration-300 ease-in-out hover:bg-blue-600 hover:scale-105 hover:shadow-lg"
                                   variant="destructive"
                                   size="sm"
                                   onClick={() =>
                                     deleteChannel(category.id, channel.id)
                                   }
                                 >
-                                  <Trash className="h-4 w-4" />
+                                  <Trash className="h-5 w-5 text-white" />
+                                  <span className="text-white text-sm">
+                                    Deletar
+                                  </span>
                                 </Button>
                               </li>
                             ))}

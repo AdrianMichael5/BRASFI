@@ -122,6 +122,7 @@ export default function LoginPage() {
               <div className="space-y-2">
                 <Label htmlFor="email">E-mail</Label>
                 <Input
+                  className="focus:ring-green-600 border border-gray-300"
                   id="email"
                   type="email"
                   placeholder="seu@email.com"
@@ -141,6 +142,7 @@ export default function LoginPage() {
                   </Link>
                 </div>
                 <Input
+                  className="focus:ring-green-600 border border-gray-300"
                   id="password"
                   type="password"
                   value={password}
@@ -151,7 +153,7 @@ export default function LoginPage() {
               </div>
               <Button
                 type="submit"
-                className="w-full bg-green-600 hover:bg-green-700"
+                className="w-full bg-green-600 hover:bg-green-700 cursor-pointer"
                 disabled={isLoading}
               >
                 {isLoading ? "Entrando..." : "Entrar"}
