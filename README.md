@@ -4,7 +4,7 @@ Bem-vindo ao  repositório da **BRASFI**! Este projeto tem como objetivo fornece
 
 ## 🌐 BRASFI
 
-[![Vercel](https://img.shields.io/badge/BRASFI-00AA00?style=for-the-badge&logo=vercel&logoColor=white)](https://brasfi-connect.vercel.app)
+[![Vercel](https://img.shields.io/badge/BRASFI-00AA00?style=for-the-badge&logo=vercel&logoColor=white)](https://brasfi.vercel.app/)
 
 ## 🚀 Funcionalidades
 
