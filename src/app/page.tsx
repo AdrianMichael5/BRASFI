@@ -13,10 +13,10 @@ export default function Home() {
       {/* Hero Section */}
       <section id="hero" className="relative h-[700px] overflow-hidden">
         <Image
-          src="/amazonia1.png"
+          src="/backg.jpg"
           alt="Imagem de fundo com natureza"
-          width={1200}
-          height={500}
+          width={1920}
+          height={1080}
           className="absolute inset-0 w-full h-full object-cover brightness-75"
           priority
         />
@@ -27,9 +27,10 @@ export default function Home() {
               CONHEÇA O SEU FUTURO
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              FORMANDO LÍDERES E VIABILIZANDO SOLUÇÕES
+              FORMANDO LÍDERES 
+            <h1>E VIABILIZANDO SOLUÇÕES</h1>
             </h1>
-            <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium transition-all hover:scale-105">
+            <Button className="bg-white text-black font-medium cursor-pointer">
               CONHEÇA O BRASFI
             </Button>
           </div>
