@@ -13,7 +13,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Switch } from "@headlessui/react";
+import { Switch } from "@/components/ui/switch";
 import { Trash, Shield, MessageSquareX } from "lucide-react";
 import { cn, getInitials, getRandomColor } from "@/lib/utils";
 
@@ -340,9 +340,6 @@ export function AdminPanel() {
                           </th>
                           <th className="text-left p-3 text-gray-700">Email</th>
                           <th className="text-left p-3 text-gray-700">Admin</th>
-                          <th className="text-right p-3 text-gray-700">
-                            Ações
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -368,36 +365,12 @@ export function AdminPanel() {
                             <td className="p-3">
                               <Switch
                                 checked={user.isAdmin}
-                                onChange={() =>
+                                onCheckedChange={() =>
                                   toggleAdminStatus(user.email)
                                 }
-                                className="data-[state=checked]:bg-blue-600 data-[state=unchecked]:bg-gray-300"
                               />
                             </td>
-                            <td className="p-3 text-right">
-                              <Button
-                                variant={
-                                  user.isAdmin ? "destructive" : "default"
-                                }
-                                size="sm"
-                                className={cn(
-                                  "flex items-center gap-1 font-medium transition-all duration-200 ease-in-out",
-                                  user.isAdmin
-                                    ? "bg-red-600 text-white hover:bg-red-700 hover:shadow-lg hover:scale-105 focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                                    : "bg-blue-600 text-white border border-blue-600 hover:bg-blue-700 hover:shadow-lg hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                                )}
-                                onClick={() => toggleAdminStatus(user.email)}
-                              >
-                                {user.isAdmin ? (
-                                  "Remover Admin"
-                                ) : (
-                                  <>
-                                    <Shield className="h-4 w-4 mr-1" />
-                                    Tornar Admin
-                                  </>
-                                )}
-                              </Button>
-                            </td>
+                            {/* Removido o botão aqui */}
                           </tr>
                         ))}
                       </tbody>
@@ -465,20 +438,8 @@ export function AdminPanel() {
                     <Switch
                       id="isAnnouncement"
                       checked={isAnnouncement}
-                      onChange={setIsAnnouncement}
-                      className={`relative inline-flex h-[22px] w-[42px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                        isAnnouncement ? "bg-green-500" : "bg-gray-300"
-                      }`}
-                    >
-                      <span className="sr-only">Canal de Anúncio</span>
-                      <span
-                        className={`pointer-events-none inline-block h-[18px] w-[18px] transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
-                          isAnnouncement
-                            ? "translate-x-[20px]"
-                            : "translate-x-[0.3px]"
-                        }`}
-                      />
-                    </Switch>
+                      onCheckedChange={setIsAnnouncement}
+                    />
                     <Label
                       htmlFor="isAnnouncement"
                       className="text-sm font-medium text-gray-900"

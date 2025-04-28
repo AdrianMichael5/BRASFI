@@ -9,11 +9,13 @@ export default function AdminPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState<any>(null);
+  const [categories, setCategories] = useState<any[]>([]);
 
   // Verificar se o usuário está autenticado e é admin
   useEffect(() => {
     const isAuthenticated = localStorage.getItem("isAuthenticated") === "true";
     const userData = localStorage.getItem("user");
+    const categoriesData = localStorage.getItem("categories");
 
     if (!isAuthenticated || !userData) {
       // Redirecionar para a página de login se não estiver autenticado
@@ -30,6 +32,11 @@ export default function AdminPage() {
         alert("Você não tem permissão para acessar o painel de administração.");
         router.push("/app");
         return;
+      }
+
+      // Carregar categorias
+      if (categoriesData) {
+        setCategories(JSON.parse(categoriesData));
       }
     } catch (e) {
       console.error("Erro ao analisar dados do usuário:", e);
@@ -58,8 +65,8 @@ export default function AdminPage() {
   return (
     <AppLayout
       user={user}
-      categories={[]}
-      setCategories={() => {}}
+      categories={categories}
+      setCategories={setCategories}
       currentChannelId={null}
       setCurrentChannelId={() => {}}
     >

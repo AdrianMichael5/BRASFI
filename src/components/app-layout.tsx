@@ -3,6 +3,7 @@
 import type React from "react";
 import { AppNavbar } from "@/components/app-navbar";
 import { AppSidebar } from "@/components/app-sidebar";
+import { NavigationSidebar } from "@/components/navigation-sidebar";
 
 interface Channel {
   id: string;
@@ -43,6 +44,7 @@ export function AppLayout({
     <div className="flex h-screen flex-col bg-gray-50">
       <AppNavbar user={user} />
       <div className="flex flex-1 overflow-hidden">
+        <NavigationSidebar />
         <AppSidebar
           user={user}
           categories={categories}
