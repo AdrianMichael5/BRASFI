@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { AppLayout } from "@/components/app-layout";
+import { AppLayoutWithoutSidebar } from "@/components/app-layout-without-sidebar";
 import { BookOpen } from "lucide-react";
 
 export default function CoursesPage() {
@@ -47,13 +47,7 @@ export default function CoursesPage() {
   }
 
   return (
-    <AppLayout
-      user={user}
-      categories={[]}
-      setCategories={() => {}}
-      currentChannelId={null}
-      setCurrentChannelId={() => {}}
-    >
+    <AppLayoutWithoutSidebar user={user}>
       <div className="container mx-auto py-8 px-4">
         <div className="flex flex-col items-center justify-center text-center p-12">
           <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
@@ -66,6 +60,6 @@ export default function CoursesPage() {
           </p>
         </div>
       </div>
-    </AppLayout>
+    </AppLayoutWithoutSidebar>
   );
 }
