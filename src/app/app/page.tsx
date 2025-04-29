@@ -196,7 +196,7 @@ export default function AppPage() {
         <NavigationSidebar />
         <div className="flex-1 overflow-auto">
           <div className="container max-w-2xl mx-auto py-6 px-4">
-            <h1 className="text-2xl font-bold mb-6">Feed de Notícias</h1>
+            <h1 className="text-2xl font-bold mb-6">Feed Geral</h1>
 
             {/* Área de criação de post (apenas para administradores) */}
             {user.isAdmin && (

@@ -289,7 +289,7 @@ export default function EventosPage() {
                     });
                     setDialogOpen(true);
                   }}
-                  className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2"
+                  className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 cursor-pointer"
                 >
                   <Plus className="h-4 w-4" />
                   Criar Evento
@@ -380,6 +380,7 @@ export default function EventosPage() {
                       {editingEvent ? "Editar Evento" : "Criar Novo Evento"}
                     </h2>
                     <Button
+                    className="cursor-pointer"
                       variant="ghost"
                       size="icon"
                       onClick={() => setDialogOpen(false)}
@@ -447,6 +448,7 @@ export default function EventosPage() {
                         onChange={(e) =>
                           handleInputChange("data", e.target.value)
                         }
+                        className="grid grid-cols-1"
                       />
                     </div>
 
@@ -524,6 +526,7 @@ export default function EventosPage() {
 
                   <div className="flex justify-end gap-2 mt-4">
                     <Button
+                    className="cursor-pointer"
                       variant="outline"
                       onClick={() => setDialogOpen(false)}
                     >
@@ -531,7 +534,7 @@ export default function EventosPage() {
                     </Button>
                     <Button
                       onClick={handleSaveEvento}
-                      className="bg-green-600 hover:bg-green-700 text-white"
+                      className="bg-green-600 hover:bg-green-700 text-white cursor-pointer"
                     >
                       {editingEvent ? "Salvar Alterações" : "Criar Evento"}
                     </Button>
