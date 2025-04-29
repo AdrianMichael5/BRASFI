@@ -10,16 +10,16 @@ import {
   Settings,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export function NavigationSidebar() {
   const pathname = usePathname();
 
   const navItems = [
     {
-      name: "Início",
+      name: "Feed",
       href: "/app",
       icon: Home,
-      exact: true,
     },
     {
       name: "Chat",
@@ -39,47 +39,46 @@ export function NavigationSidebar() {
   ];
 
   return (
-    <div className="w-24 bg-white border-r border-green-800 flex flex-col items-center py-4 h-screen">
-      {/* Itens principais */}
-      <nav className="flex flex-col items-center gap-8 mt-4">
-        {navItems.map((item) => {
-          const isActive = item.exact
-            ? pathname === item.href
-            : pathname.startsWith(item.href);
+    <TooltipProvider delayDuration={300}>
+      <div className="w-20 bg-gray-100 border-r border-gray-200 flex flex-col items-center py-4 h-full">
+        <div className="flex flex-col items-center space-y-6">
+          {navItems.map((item) => {
+            // Corrigir a lógica de ícone ativo para verificar exatamente a rota atual
+            const isActive = pathname === item.href;
 
-          return (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={cn(
-                "flex flex-col items-center gap-1 text-sm font-semibold transition-colors",
-                isActive
-                  ? "text-green-700"
-                  : "text-gray-500 hover:text-green-600"
-              )}
-            >
-              <item.icon className="h-7 w-7" />
-              <span className="text-center">{item.name}</span>
-            </Link>
-          );
-        })}
-      </nav>
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  "flex flex-col items-center justify-center w-16 py-2 rounded-md transition-all",
+                  isActive
+                    ? "bg-green-100 text-green-700"
+                    : "text-gray-500 hover:bg-gray-200 hover:text-green-600"
+                )}
+              >
+                <item.icon className="h-5 w-5 mb-1" />
+                <span className="text-xs font-medium">{item.name}</span>
+              </Link>
+            );
+          })}
+        </div>
 
-      {/* Configurações no final */}
-      <div className="mt-auto mb-8">
-        <Link
-          href="/app/profile"
-          className={cn(
-            "flex flex-col items-center gap-1 text-sm font-semibold transition-colors",
-            pathname === "/app/profile"
-              ? "text-green-700"
-              : "text-gray-500 hover:text-green-600"
-          )}
-        >
-          <Settings className="h-7 w-7" />
-          <span className="text-center">Configurações</span>
-        </Link>
+        <div className="mt-auto mb-4">
+          <Link
+            href="/app/profile"
+            className={cn(
+              "flex flex-col items-center justify-center w-16 py-2 rounded-md transition-all",
+              pathname === "/app/profile"
+                ? "bg-green-100 text-green-700"
+                : "text-gray-500 hover:bg-gray-200 hover:text-green-600"
+            )}
+          >
+            <Settings className="h-5 w-5 mb-1" />
+            <span className="text-xs font-medium">Perfil</span>
+          </Link>
+        </div>
       </div>
-    </div>
+    </TooltipProvider>
   );
 }
