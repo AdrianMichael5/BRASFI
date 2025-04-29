@@ -317,7 +317,7 @@ export default function EventosPage() {
                             className="h-8 w-8 text-blue-600"
                             onClick={() => handleEditEvento(evento)}
                           >
-                            <Edit className="h-4 w-4" />
+                            <Edit className="h-4 w-4 cursor-pointer" />
                           </Button>
                           <Button
                             variant="ghost"
@@ -325,7 +325,7 @@ export default function EventosPage() {
                             className="h-8 w-8 text-red-600"
                             onClick={() => handleDeleteEvento(evento.id)}
                           >
-                            <Trash className="h-4 w-4" />
+                            <Trash className="h-4 w-4 cursor-pointer" />
                           </Button>
                         </div>
                       )}
