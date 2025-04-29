@@ -358,7 +358,7 @@ export default function EventosPage() {
                       <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
                         {evento.categoria}
                       </span>
-                      <Button className="bg-green-600 hover:bg-green-700 text-white">
+                      <Button className="bg-green-600 hover:bg-green-700 text-white cursor-pointer">
                         Inscrever-se
                       </Button>
                     </div>
