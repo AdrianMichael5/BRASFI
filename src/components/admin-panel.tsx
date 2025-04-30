@@ -310,12 +310,30 @@ export function AdminPanel() {
     <div className="container mx-auto py-8 px-4">
       <h1 className="text-2xl font-bold mb-6">Painel de Administração</h1>
 
-      <Tabs defaultValue="users">
-        <TabsList className="mb-4">
-          <TabsTrigger value="users">Usuários</TabsTrigger>
-          <TabsTrigger value="channels">Canais</TabsTrigger>
-          <TabsTrigger value="messages">Mensagens</TabsTrigger>
-        </TabsList>
+      <Tabs defaultValue="channels" className="w-full">
+  <TabsList className="mb-4 bg-gray-200 border rounded-lg p-1">
+    <TabsTrigger
+      value="channels"
+      className="data-[state=active]:bg-blue-600 data-[state=active]:text-white
+                 text-gray-700 px-4 py-2 rounded-md transition"
+    >
+      Canais
+    </TabsTrigger>
+    <TabsTrigger
+      value="users"
+      className="data-[state=active]:bg-blue-600 data-[state=active]:text-white
+                 text-gray-700 px-4 py-2 rounded-md transition"
+    >
+      Usuários
+    </TabsTrigger>
+    <TabsTrigger
+      value="messages"
+      className="data-[state=active]:bg-blue-600 data-[state=active]:text-white
+                 text-gray-700 px-4 py-2 rounded-md transition"
+    >
+      Mensagens
+    </TabsTrigger>
+  </TabsList>
 
         {/* Gerenciamento de Usuários */}
         <TabsContent value="users">
@@ -502,17 +520,14 @@ export function AdminPanel() {
                                   )}
                                 </div>
                                 <Button
-                                  className="bg-blue-500 text-white rounded-md px-4 h-10 flex items-center gap-2 transition duration-300 ease-in-out hover:bg-blue-600 hover:scale-105 hover:shadow-lg"
+                                  className=" rounded-md px-3 h-8 flex items-center gap-2"
                                   variant="destructive"
                                   size="sm"
                                   onClick={() =>
                                     deleteChannel(category.id, channel.id)
                                   }
                                 >
-                                  <Trash className="h-5 w-5 text-white" />
-                                  <span className="text-white text-sm">
-                                    Deletar
-                                  </span>
+                                  <Trash className="h-5 w-5 text-red-500 cursor-pointer" />
                                 </Button>
                               </li>
                             ))}

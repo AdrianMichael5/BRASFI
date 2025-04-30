@@ -11,10 +11,10 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   Heart,
   MessageCircle,
-  Share2,
   MoreVertical,
   Send,
   ImageIcon,
+  Trash,
 } from "lucide-react";
 import { getInitials, getRandomColor } from "@/lib/utils";
 import {
@@ -259,24 +259,12 @@ export default function AppPage() {
                     {/* Cabeçalho do post */}
                     <div className="p-4 flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        <div
-                          className="w-10 h-10 rounded-full flex items-center justify-center text-white font-medium"
-                          style={{
-                            backgroundColor: getRandomColor(post.author.name),
-                          }}
-                        >
-                          {post.author.avatar ? (
-                            <Image
-                              src={post.author.avatar || "/placeholder.svg"}
-                              alt={post.author.name}
-                              width={40}
-                              height={40}
-                              className="rounded-full"
-                            />
-                          ) : (
-                            getInitials(post.author.name)
-                          )}
-                        </div>
+                      <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center text-white font-medium flex-shrink-0"
+                    style={{ backgroundColor: getRandomColor(user.name) }}
+                  >
+                    {getInitials(post.author.name)}
+                  </div>
                         <div>
                           <div className="font-medium">{post.author.name}</div>
                           <div className="text-xs text-gray-500">
@@ -293,7 +281,7 @@ export default function AppPage() {
                             <Button
                               variant="ghost"
                               size="icon"
-                              className="h-8 w-8"
+                              className="h-8 w-8 cursor-pointer"
                             >
                               <MoreVertical className="h-4 w-4" />
                             </Button>
@@ -302,10 +290,9 @@ export default function AppPage() {
                             align="end"
                             className="bg-white text-black"
                           >
-                            <DropdownMenuItem>Salvar post</DropdownMenuItem>
-                            <DropdownMenuItem>Reportar</DropdownMenuItem>
+                            <DropdownMenuItem className="cursor-pointer text-black hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors duration-200">Salvar post</DropdownMenuItem>
                             {user.isAdmin && (
-                              <DropdownMenuItem className="text-red-600">
+                              <DropdownMenuItem className="cursor-pointer text-red-600 hover:bg-red-50 hover:text-red-700 rounded-md cursor-pointer transition-colors duration-200">
                                 Excluir
                               </DropdownMenuItem>
                             )}
@@ -332,7 +319,7 @@ export default function AppPage() {
                     )}
 
                     {/* Área de interação */}
-                    <div className="p-4 border-t border-gray-100">
+                    <div className="p-4 border-t border-gray-600">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-6">
                           <Button
@@ -340,7 +327,7 @@ export default function AppPage() {
                             size="sm"
                             className="flex items-center gap-1 text-gray-600"
                           >
-                            <Heart className="h-5 w-5" />
+                            <Heart className="h-5 w-5 cursor-pointer" />
                             <span>{post.likes}</span>
                           </Button>
                           <Button
@@ -348,18 +335,10 @@ export default function AppPage() {
                             size="sm"
                             className="flex items-center gap-1 text-gray-600"
                           >
-                            <MessageCircle className="h-5 w-5" />
+                            <MessageCircle className="h-5 w-5 cursor-pointer" />
                             <span>{post.comments}</span>
                           </Button>
                         </div>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="flex items-center gap-1 text-gray-600"
-                        >
-                          <Share2 className="h-5 w-5" />
-                          <span>Compartilhar</span>
-                        </Button>
                       </div>
                     </div>
                   </Card>
