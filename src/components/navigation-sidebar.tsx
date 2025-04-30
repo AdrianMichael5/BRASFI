@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  Home,
+  House,
   MessageSquare,
   BookOpen,
   Calendar,
@@ -19,7 +19,7 @@ export function NavigationSidebar() {
     {
       name: "Feed",
       href: "/app",
-      icon: Home,
+      icon: House,
     },
     {
       name: "Chat",
