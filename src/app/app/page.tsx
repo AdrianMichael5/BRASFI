@@ -200,7 +200,7 @@ export default function AppPage() {
 
             {/* Área de criação de post (apenas para administradores) */}
             {user.isAdmin && (
-              <Card className="mb-8 p-4 shadow-md">
+              <Card className="mb-8 p-4 shadow-xl border-gray-50">
                 <div className="flex items-start gap-3">
                   <div
                     className="w-10 h-10 rounded-full flex items-center justify-center text-white font-medium flex-shrink-0"
@@ -255,7 +255,7 @@ export default function AppPage() {
                 </div>
               ) : (
                 posts.map((post) => (
-                  <Card key={post.id} className="overflow-hidden shadow-md">
+                  <Card key={post.id} className="overflow-hidden shadow-xl border-gray-50">
                     {/* Cabeçalho do post */}
                     <div className="p-4 flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -281,7 +281,7 @@ export default function AppPage() {
                             <Button
                               variant="ghost"
                               size="icon"
-                              className="h-8 w-8 cursor-pointer"
+                              className="h-8 w-8 cursor-pointer hover:bg-blue-100"
                             >
                               <MoreVertical className="h-4 w-4" />
                             </Button>
@@ -290,9 +290,9 @@ export default function AppPage() {
                             align="end"
                             className="bg-white text-black"
                           >
-                            <DropdownMenuItem className="cursor-pointer text-black hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors duration-200">Salvar post</DropdownMenuItem>
+                            <DropdownMenuItem className="text-black hover:bg-blue-50 hover:text-blue-600 rounded-md cursor-pointer transition-colors duration-200">Salvar post</DropdownMenuItem>
                             {user.isAdmin && (
-                              <DropdownMenuItem className="cursor-pointer text-red-600 hover:bg-red-50 hover:text-red-700 rounded-md cursor-pointer transition-colors duration-200">
+                              <DropdownMenuItem className="text-red-600 hover:bg-red-50 hover:text-red-700 rounded-md cursor-pointer transition-colors duration-200">
                                 Excluir
                               </DropdownMenuItem>
                             )}
@@ -325,7 +325,7 @@ export default function AppPage() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="flex items-center gap-1 text-gray-600"
+                            className="flex items-center gap-1 text-gray-600 hover:bg-blue-100 cursor-pointer"
                           >
                             <Heart className="h-5 w-5 cursor-pointer" />
                             <span>{post.likes}</span>
@@ -333,7 +333,7 @@ export default function AppPage() {
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="flex items-center gap-1 text-gray-600"
+                            className="flex items-center gap-1 text-gray-600 hover:bg-blue-100 cursor-pointer"
                           >
                             <MessageCircle className="h-5 w-5 cursor-pointer" />
                             <span>{post.comments}</span>
