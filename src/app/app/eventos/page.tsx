@@ -265,7 +265,7 @@ export default function EventosPage() {
   }
 
   return (
-    <div className="flex h-screen flex-col bg-gray-50">
+    <div className="flex h-screen flex-col">
       <AppNavbar user={user} />
       <div className="flex flex-1 overflow-hidden">
         <NavigationSidebar />
