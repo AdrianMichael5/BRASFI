@@ -380,8 +380,8 @@ export default function CoursesPage() {
         </div>
 
         {cursos.length === 0 ? (
-          <div className="text-center py-12">
-            <BookOpen className="h-12 w-12 mx-auto text-gray-400 mb-4" />
+          <div className="text-center py-12">           
+            <BookOpen className="h-12 w-12 mx-auto text-gray-400 mb-4" />           
             <h2 className="text-xl font-medium text-gray-600 mb-2">
               Nenhum curso disponível
             </h2>
@@ -395,8 +395,9 @@ export default function CoursesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cursos.map((curso) => (
               <Card key={curso.id} className="overflow-hidden flex flex-col border-gray-200">
+                <div className="h-3 bg-green-600"></div>
                 <div className="aspect-video relative bg-blue-50 flex items-center justify-center">
-                  {renderIcone(curso.icone, "h-16 w-16 text-blue-500")}
+                  {renderIcone(curso.icone, "h-16 w-16 text-green-500")}
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
                   <h3 className="text-xl font-semibold mb-2">{curso.titulo}</h3>
@@ -423,22 +424,13 @@ export default function CoursesPage() {
                     </div>
 
                     <div className="flex justify-between items-center">
-                      <div className="flex items-center text-sm text-gray-500">
+                      <div className="flex items-center text-sm text-blue-500">
                         <Users className="h-4 w-4 mr-1" />
                         <span>{curso.inscritos.length} inscritos</span>
                       </div>
 
-                      <div className="flex gap-2">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => handleOpenCursoDetalhes(curso)}
-                          className="cursor-pointer border-gray-400"
-                        >
-                          Detalhes
-                        </Button>
-
-                        {user.isAdmin && (
+                      <div className="flex">
+                      {user.isAdmin && (
                           <Button
                             variant="ghost"
                             size="icon"
@@ -459,6 +451,16 @@ export default function CoursesPage() {
                             <Trash className="h-4 w-4" />
                           </Button>
                         )}
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleOpenCursoDetalhes(curso)}
+                          className="cursor-pointer border-green-600 hover:bg-green-200 text-green-800"
+                        >
+                          Acessar Curso
+                        </Button>
+
+                    
                       </div>
                     </div>
                   </div>
@@ -548,9 +550,9 @@ export default function CoursesPage() {
                         variant={
                           novoCurso.icone === icone ? "default" : "outline"
                         }
-                        className={`flex items-center justify-center p-3 h-auto ${
+                        className={`flex items-center justify-center p-3 h-auto cursor-pointer hover:bg-green-100 ${
                           novoCurso.icone === icone
-                            ? "bg-blue-600 text-white"
+                            ? "bg-green-600 text-white"
                             : "text-gray-700"
                         }`}
                         onClick={() => handleInputChange("icone", icone)}
@@ -587,7 +589,7 @@ export default function CoursesPage() {
                 </Button>
                 <Button
                   onClick={handleSaveCurso}
-                  className="bg-blue-600 hover:bg-blue-700 text-white"
+                  className="bg-green-600 hover:bg-green-700 text-white cursor-pointer"
                 >
                   {editingCurso ? "Salvar Alterações" : "Criar Curso"}
                 </Button>
@@ -633,7 +635,7 @@ export default function CoursesPage() {
                 <div className="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center">
                   {renderIcone(
                     cursoSelecionado.icone,
-                    "h-12 w-12 text-blue-500"
+                    "h-12 w-12 text-green-500"
                   )}
                 </div>
               </div>
