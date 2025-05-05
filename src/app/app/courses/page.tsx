@@ -395,9 +395,9 @@ export default function CoursesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cursos.map((curso) => (
               <Card key={curso.id} className="overflow-hidden flex flex-col border-gray-200">
-                <div className="h-3 bg-green-600"></div>
+                <div className="h-3 bg-blue-600"></div>
                 <div className="aspect-video relative bg-blue-50 flex items-center justify-center">
-                  {renderIcone(curso.icone, "h-16 w-16 text-green-500")}
+                  {renderIcone(curso.icone, "h-16 w-16 text-blue-500")}
                 </div>
                 <div className="p-5 flex-1 flex flex-col">
                   <h3 className="text-xl font-semibold mb-2">{curso.titulo}</h3>
@@ -455,7 +455,7 @@ export default function CoursesPage() {
                           variant="outline"
                           size="sm"
                           onClick={() => handleOpenCursoDetalhes(curso)}
-                          className="cursor-pointer border-green-600 hover:bg-green-200 text-green-800"
+                          className="cursor-pointer border-blue-600 hover:bg-blue-200 text-blue-800"
                         >
                           Acessar Curso
                         </Button>
@@ -550,9 +550,9 @@ export default function CoursesPage() {
                         variant={
                           novoCurso.icone === icone ? "default" : "outline"
                         }
-                        className={`flex items-center justify-center p-3 h-auto cursor-pointer hover:bg-green-100 ${
+                        className={`flex items-center justify-center p-3 h-auto cursor-pointer hover:bg-blue-100 ${
                           novoCurso.icone === icone
-                            ? "bg-green-600 text-white"
+                            ? "bg-blue-600 text-white"
                             : "text-gray-700"
                         }`}
                         onClick={() => handleInputChange("icone", icone)}
@@ -589,7 +589,7 @@ export default function CoursesPage() {
                 </Button>
                 <Button
                   onClick={handleSaveCurso}
-                  className="bg-green-600 hover:bg-green-700 text-white cursor-pointer"
+                  className="bg-blue-600 hover:bg-blue-700 text-white cursor-pointer"
                 >
                   {editingCurso ? "Salvar Alterações" : "Criar Curso"}
                 </Button>
@@ -635,7 +635,7 @@ export default function CoursesPage() {
                 <div className="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center">
                   {renderIcone(
                     cursoSelecionado.icone,
-                    "h-12 w-12 text-green-500"
+                    "h-12 w-12 text-blue-500"
                   )}
                 </div>
               </div>
@@ -685,7 +685,7 @@ export default function CoursesPage() {
 
                     {!isInscrito(cursoSelecionado) ? (
                       <Button
-                        className="bg-green-600 hover:bg-green-700 text-white cursor-pointer"
+                        className="bg-blue-600 hover:bg-blue-700 text-white cursor-pointer"
                         onClick={() => handleInscreverCurso(cursoSelecionado)}
                       >
                         <Users className="h-4 w-4 mr-2" />
@@ -833,7 +833,7 @@ export default function CoursesPage() {
 
                     <div className="flex flex-col gap-2">
                       <Button
-                        className="bg-green-600 hover:bg-green-700 text-white cursor-pointer"
+                        className="bg-blue-600 hover:bg-blue-700 text-white cursor-pointer"
                         onClick={handleConfirmarDoacao}
                       >
                         Confirmar Pagamento
