@@ -42,7 +42,7 @@ export function AppNavbar({ user }: AppNavbarProps) {
     <header className="h-15 border-b border-green-800 bg-white px-4 flex items-center justify-between">
       <div className="flex items-center">
         <Link href="/app" className="flex items-center gap-2 mr-4">
-        <h1 className="text-green-500 text-3xl">BRASFI</h1>
+          <h1 className="text-green-500 text-3xl">BRASFI</h1>
         </Link>
       </div>
 
@@ -60,35 +60,33 @@ export function AppNavbar({ user }: AppNavbarProps) {
           </Button>
         )}
 
-{/* Notificação */}
-<DropdownMenu>
-  <DropdownMenuTrigger>
-    <div className="relative">
-      <Bell className="cursor-pointer" />
-      <span className="absolute -top-1 -right-1 flex size-3">
-        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
-        <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
-      </span>
-    </div>
-  </DropdownMenuTrigger>
+        {/* Notificação */}
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <div className="relative">
+              <Bell className="cursor-pointer" />
+              <span className="absolute -top-1 -right-1 flex size-3 cursor-pointer">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+                <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
+              </span>
+            </div>
+          </DropdownMenuTrigger>
 
-  <DropdownMenuContent
-    align="end"
-    className="w-56 bg-white border border-gray-200 rounded-lg shadow-lg p-2"
-  >
-    <DropdownMenuLabel className="text-sm font-semibold text-gray-700 px-3 py-2">
-      Notificações
-    </DropdownMenuLabel>
+          <DropdownMenuContent
+            align="end"
+            className="w-56 bg-white border border-gray-200 rounded-lg shadow-lg p-2"
+          >
+            <DropdownMenuLabel className="text-sm font-semibold text-gray-700 px-3 py-2">
+              Notificações
+            </DropdownMenuLabel>
 
-    <DropdownMenuSeparator className="border-t border-gray-200 my-1" />
+            <DropdownMenuSeparator className="border-t border-gray-200 my-1" />
 
-    <DropdownMenuItem className="flex items-center gap-2 px-3 py-2 text-gray-700 cursor-pointer hover:bg-gray-100">
-      
-      <h1>Novo evento agendado</h1>
-    </DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>
-
+            <DropdownMenuItem className="flex items-center gap-2 px-3 py-2 text-gray-700 cursor-pointer hover:bg-gray-100">
+              <h1>Novo evento agendado</h1>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -107,7 +105,7 @@ export function AppNavbar({ user }: AppNavbarProps) {
               </div>
               {/* Inicial e cor do usuário */}
               <div
-                className="h-9 w-9 flex items-center justify-center rounded-full text-white text-lg font-bold ring-2 ring-blue-200"
+                className="h-9 w-9 flex items-center justify-center rounded-full text-white text-lg font-bold"
                 style={{ backgroundColor: avatarColor }}
               >
                 {userInitials}

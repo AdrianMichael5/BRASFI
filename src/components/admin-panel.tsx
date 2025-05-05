@@ -368,7 +368,7 @@ export function AdminPanel() {
                           >
                             <td className="p-3 flex items-center">
                               <div
-                                className="w-8 h-8 rounded-full flex items-center justify-center text-white font-medium mr-2 ring-2 ring-blue-200"
+                                className="w-8 h-8 rounded-full flex items-center justify-center text-white font-medium mr-2"
                                 style={{
                                   backgroundColor: getRandomColor(user.email),
                                 }}
