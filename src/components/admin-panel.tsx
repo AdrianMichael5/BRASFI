@@ -417,7 +417,7 @@ export function AdminPanel() {
                     <Label htmlFor="category">Categoria</Label>
                     <select
                       id="category"
-                      className="w-full p-2 border rounded-md"
+                      className="w-full p-2 border rounded-md cursor-pointer"
                       value={selectedCategory}
                       onChange={(e) => setSelectedCategory(e.target.value)}
                     >
