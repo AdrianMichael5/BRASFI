@@ -16,9 +16,9 @@ Bem-vindo ao  repositório da **BRASFI**! Este projeto tem como objetivo fornece
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **Backend**: 🚧 Em definição...  
+- **Backend**: 🟦 TypeScript
 - **Banco de Dados**: 🚧 Em definição... 
-- **Frontend**: 🚧 Em definição...  
+- **Frontend**: ⚡️ Next.js 
 
 
 ## 🤝 Equipe

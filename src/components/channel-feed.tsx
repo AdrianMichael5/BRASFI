@@ -58,6 +58,19 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
     }
   }, []);
 
+  // Atualizar usuário atual quando o canal mudar
+  useEffect(() => {
+    const userData = localStorage.getItem("user");
+    if (userData) {
+      try {
+        const parsedUser = JSON.parse(userData);
+        setCurrentUser(parsedUser);
+      } catch (e) {
+        console.error("Erro ao atualizar dados do usuário:", e);
+      }
+    }
+  }, [channel.id]);
+
   // Carregar mensagens do canal
   useEffect(() => {
     const channelMessages = localStorage.getItem(`messages_${channel.id}`);
@@ -90,11 +103,26 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
     if (!newMessage.trim() || !currentUser) return;
 
     // Verificar se o usuário pode enviar mensagens no canal de avisos
-    if (channel.isAnnouncement && !currentUser.isAdmin) {
-      alert(
-        "Apenas administradores podem enviar mensagens no canal de avisos."
-      );
-      return;
+    if (channel.isAnnouncement) {
+      // Buscar informações atualizadas do usuário diretamente do localStorage
+      const freshUserData = localStorage.getItem("user");
+      let isCurrentUserAdmin = false;
+
+      if (freshUserData) {
+        try {
+          const freshUser = JSON.parse(freshUserData);
+          isCurrentUserAdmin = freshUser.isAdmin === true;
+        } catch (e) {
+          console.error("Erro ao verificar permissões do usuário:", e);
+        }
+      }
+
+      if (!isCurrentUserAdmin) {
+        alert(
+          "Apenas administradores podem enviar mensagens no canal de avisos."
+        );
+        return;
+      }
     }
 
     const message: Message = {
@@ -228,6 +256,21 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
     ];
   };
 
+  // Verificar se o usuário atual é administrador (usando dados atualizados)
+  const isUserAdmin = () => {
+    // Buscar informações atualizadas do usuário diretamente do localStorage
+    const freshUserData = localStorage.getItem("user");
+    if (freshUserData) {
+      try {
+        const freshUser = JSON.parse(freshUserData);
+        return freshUser.isAdmin === true;
+      } catch (e) {
+        console.error("Erro ao verificar status de administrador:", e);
+      }
+    }
+    return currentUser?.isAdmin === true;
+  };
+
   return (
     <div className="flex flex-col h-full bg-white">
       {/* Channel Header */}
@@ -237,6 +280,11 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
             <h1 className="text-lg font-semibold text-gray-800">
               #{channel.name}
             </h1>
+            {channel.isAnnouncement && (
+              <span className="ml-2 text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded-full">
+                Somente Admins
+              </span>
+            )}
             {channel.description && (
               <TooltipProvider>
                 <Tooltip>
@@ -322,20 +370,20 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
             placeholder={
-              channel.isAnnouncement && currentUser?.isAdmin
+              channel.isAnnouncement && isUserAdmin()
                 ? "Enviar anúncio..."
                 : channel.isAnnouncement
                 ? "Apenas administradores podem enviar mensagens aqui"
                 : "Enviar mensagem..."
             }
-            disabled={channel.isAnnouncement && !currentUser?.isAdmin}
+            disabled={channel.isAnnouncement && !isUserAdmin()}
             className="flex-1"
           />
           <Button
             type="submit"
             size="icon"
             className="bg-blue-500"
-            disabled={channel.isAnnouncement && !currentUser?.isAdmin}
+            disabled={channel.isAnnouncement && !isUserAdmin()}
           >
             <Send className="h-4 w-4" />
             <span className="sr-only">Enviar</span>

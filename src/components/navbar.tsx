@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-
+import { LogIn } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -34,7 +34,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-green-800 text-white">
+    <header className="absolute top-0 left-0 w-full z-50 bg-transparent text-white">
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between md:justify-start">
           {/* Logo */}
@@ -55,7 +55,7 @@ export function Navbar() {
                 key={item.label}
                 href={item.href}
                 onClick={(e) => scrollToSection(e, item.href)}
-                className="text-sm font-medium hover:text-green-200 transition-colors"
+                className="text-sm font-medium hover:text-green-500 transition-colors"
               >
                 {item.label}
               </a>
@@ -65,6 +65,7 @@ export function Navbar() {
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center justify-end space-x-4 md:w-1/4">
             <Link href="/auth/login">
+<<<<<<< HEAD
               <Button
                 variant="outline"
                 className="border-white bg-white text-green-800 hover:bg-green-50 hover:text-green-800 transition-all hover:scale-105 cursor-pointer"
@@ -76,9 +77,14 @@ export function Navbar() {
               <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium transition-all hover:scale-105 cursor-pointer">
                 Cadastrar
               </Button>
+=======
+            <Button className="text-green-500 hover:text-black transition-all hover:scale-105 flex items-center gap-2 cursor-pointer bg-white">
+            ACESSAR PLATAFORMA
+            <LogIn size={20} />
+            </Button>
+>>>>>>> f1aad95138ce8123ddc27a8c3270c57aa2721f9f
             </Link>
           </div>
-
           {/* Mobile Menu Button */}
           <button
             className="md:hidden"

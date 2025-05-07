@@ -13,7 +13,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Switch } from "@headlessui/react";
+import { Switch } from "@/components/ui/switch";
 import { Trash, Shield, MessageSquareX } from "lucide-react";
 import { cn, getInitials, getRandomColor } from "@/lib/utils";
 
@@ -310,12 +310,30 @@ export function AdminPanel() {
     <div className="container mx-auto py-8 px-4">
       <h1 className="text-2xl font-bold mb-6">Painel de Administração</h1>
 
-      <Tabs defaultValue="users">
-        <TabsList className="mb-4">
-          <TabsTrigger value="users">Usuários</TabsTrigger>
-          <TabsTrigger value="channels">Canais</TabsTrigger>
-          <TabsTrigger value="messages">Mensagens</TabsTrigger>
-        </TabsList>
+      <Tabs defaultValue="channels" className="w-full">
+  <TabsList className="mb-4 bg-gray-200 border rounded-lg p-1">
+    <TabsTrigger
+      value="channels"
+      className="data-[state=active]:bg-blue-600 data-[state=active]:text-white
+                 text-gray-700 px-4 py-2 rounded-md transition"
+    >
+      Canais
+    </TabsTrigger>
+    <TabsTrigger
+      value="users"
+      className="data-[state=active]:bg-blue-600 data-[state=active]:text-white
+                 text-gray-700 px-4 py-2 rounded-md transition"
+    >
+      Usuários
+    </TabsTrigger>
+    <TabsTrigger
+      value="messages"
+      className="data-[state=active]:bg-blue-600 data-[state=active]:text-white
+                 text-gray-700 px-4 py-2 rounded-md transition"
+    >
+      Mensagens
+    </TabsTrigger>
+  </TabsList>
 
         {/* Gerenciamento de Usuários */}
         <TabsContent value="users">
@@ -340,9 +358,6 @@ export function AdminPanel() {
                           </th>
                           <th className="text-left p-3 text-gray-700">Email</th>
                           <th className="text-left p-3 text-gray-700">Admin</th>
-                          <th className="text-right p-3 text-gray-700">
-                            Ações
-                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -353,7 +368,7 @@ export function AdminPanel() {
                           >
                             <td className="p-3 flex items-center">
                               <div
-                                className="w-8 h-8 rounded-full flex items-center justify-center text-white font-medium mr-2 ring-2 ring-blue-200"
+                                className="w-8 h-8 rounded-full flex items-center justify-center text-white font-medium mr-2"
                                 style={{
                                   backgroundColor: getRandomColor(user.email),
                                 }}
@@ -368,36 +383,12 @@ export function AdminPanel() {
                             <td className="p-3">
                               <Switch
                                 checked={user.isAdmin}
-                                onChange={() =>
+                                onCheckedChange={() =>
                                   toggleAdminStatus(user.email)
                                 }
-                                className="data-[state=checked]:bg-blue-600 data-[state=unchecked]:bg-gray-300"
                               />
                             </td>
-                            <td className="p-3 text-right">
-                              <Button
-                                variant={
-                                  user.isAdmin ? "destructive" : "default"
-                                }
-                                size="sm"
-                                className={cn(
-                                  "flex items-center gap-1 font-medium transition-all duration-200 ease-in-out",
-                                  user.isAdmin
-                                    ? "bg-red-600 text-white hover:bg-red-700 hover:shadow-lg hover:scale-105 focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                                    : "bg-blue-600 text-white border border-blue-600 hover:bg-blue-700 hover:shadow-lg hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-                                )}
-                                onClick={() => toggleAdminStatus(user.email)}
-                              >
-                                {user.isAdmin ? (
-                                  "Remover Admin"
-                                ) : (
-                                  <>
-                                    <Shield className="h-4 w-4 mr-1" />
-                                    Tornar Admin
-                                  </>
-                                )}
-                              </Button>
-                            </td>
+                            {/* Removido o botão aqui */}
                           </tr>
                         ))}
                       </tbody>
@@ -426,7 +417,7 @@ export function AdminPanel() {
                     <Label htmlFor="category">Categoria</Label>
                     <select
                       id="category"
-                      className="w-full p-2 border rounded-md"
+                      className="w-full p-2 border rounded-md cursor-pointer"
                       value={selectedCategory}
                       onChange={(e) => setSelectedCategory(e.target.value)}
                     >
@@ -465,20 +456,8 @@ export function AdminPanel() {
                     <Switch
                       id="isAnnouncement"
                       checked={isAnnouncement}
-                      onChange={setIsAnnouncement}
-                      className={`relative inline-flex h-[22px] w-[42px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${
-                        isAnnouncement ? "bg-green-500" : "bg-gray-300"
-                      }`}
-                    >
-                      <span className="sr-only">Canal de Anúncio</span>
-                      <span
-                        className={`pointer-events-none inline-block h-[18px] w-[18px] transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
-                          isAnnouncement
-                            ? "translate-x-[20px]"
-                            : "translate-x-[0.3px]"
-                        }`}
-                      />
-                    </Switch>
+                      onCheckedChange={setIsAnnouncement}
+                    />
                     <Label
                       htmlFor="isAnnouncement"
                       className="text-sm font-medium text-gray-900"
@@ -541,17 +520,14 @@ export function AdminPanel() {
                                   )}
                                 </div>
                                 <Button
-                                  className="bg-blue-500 text-white rounded-md px-4 h-10 flex items-center gap-2 transition duration-300 ease-in-out hover:bg-blue-600 hover:scale-105 hover:shadow-lg"
+                                  className=" rounded-md px-3 h-8 flex items-center gap-2"
                                   variant="destructive"
                                   size="sm"
                                   onClick={() =>
                                     deleteChannel(category.id, channel.id)
                                   }
                                 >
-                                  <Trash className="h-5 w-5 text-white" />
-                                  <span className="text-white text-sm">
-                                    Deletar
-                                  </span>
+                                  <Trash className="h-5 w-5 text-red-500 cursor-pointer" />
                                 </Button>
                               </li>
                             ))}

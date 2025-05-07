@@ -23,7 +23,7 @@ export function WelcomeScreen() {
         </h1>
         <p className="text-gray-600 mb-6">
           Selecione um canal na barra lateral para começar a conversar com outros membros.
-        </p>
+        </p>  
         <div className="p-6 bg-blue-50 rounded-lg border border-blue-100 text-left">
           <h2 className="text-lg font-medium text-blue-800 mb-2">
             Dicas para começar:
