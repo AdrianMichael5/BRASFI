@@ -28,10 +28,10 @@ interface Curso {
   id: number;
   titulo: string;
   descricao: string;
-  icone: string; // Alterado de imagem para icone
+  icone: string;
   metaArrecadacao: number;
   valorArrecadado: number;
-  inscritos: string[]; // array de emails dos usuários inscritos
+  inscritos: string[];
 }
 
 // Cursos de exemplo
@@ -41,7 +41,7 @@ const cursosIniciais: Curso[] = [
     titulo: "Finanças Sustentáveis",
     descricao:
       "Aprenda como integrar práticas sustentáveis em decisões financeiras e investimentos responsáveis.",
-    icone: "banknote", // Ícone de dinheiro
+    icone: "banknote",
     metaArrecadacao: 5000,
     valorArrecadado: 2500,
     inscritos: ["usuario@exemplo.com"],
@@ -51,7 +51,7 @@ const cursosIniciais: Curso[] = [
     titulo: "Liderança Ambiental",
     descricao:
       "Desenvolva habilidades de liderança focadas em sustentabilidade e gestão ambiental.",
-    icone: "users", // Ícone de pessoas
+    icone: "users",
     metaArrecadacao: 3000,
     valorArrecadado: 1200,
     inscritos: [],
@@ -61,7 +61,7 @@ const cursosIniciais: Curso[] = [
     titulo: "Economia Circular",
     descricao:
       "Entenda os princípios da economia circular e como implementá-los em diferentes setores.",
-    icone: "recycle", // Ícone de reciclagem
+    icone: "recycle",
     metaArrecadacao: 4000,
     valorArrecadado: 3200,
     inscritos: [],
@@ -87,7 +87,7 @@ export default function CoursesPage() {
   >({
     titulo: "",
     descricao: "",
-    icone: "bookOpen", // Ícone padrão
+    icone: "bookOpen",
     metaArrecadacao: 1000,
   });
 
@@ -359,29 +359,38 @@ export default function CoursesPage() {
       <div className="container mx-auto py-8 px-4">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">Cursos</h1>
-          {user.isAdmin && (
+          <div className="flex gap-4">
             <Button
-              onClick={() => {
-                setEditingCurso(null);
-                setNovoCurso({
-                  titulo: "",
-                  descricao: "",
-                  icone: "bookOpen",
-                  metaArrecadacao: 1000,
-                });
-                setDialogOpen(true);
-              }}
-              className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2 cursor-pointer"
+              onClick={() => router.push('/app/courses/my-courses')}
+              variant="outline"
+              className="border-blue-600 text-blue-600 hover:bg-blue-50"
             >
-              <Plus className="h-4 w-4" />
-              Criar Curso
+              Meus Cursos
             </Button>
-          )}
+            {user.isAdmin && (
+              <Button
+                onClick={() => {
+                  setEditingCurso(null);
+                  setNovoCurso({
+                    titulo: "",
+                    descricao: "",
+                    icone: "bookOpen",
+                    metaArrecadacao: 1000,
+                  });
+                  setDialogOpen(true);
+                }}
+                className="bg-blue-600 hover:bg-blue-700 text-white flex items-center gap-2 cursor-pointer"
+              >
+                <Plus className="h-4 w-4" />
+                Criar Curso
+              </Button>
+            )}
+          </div>
         </div>
 
         {cursos.length === 0 ? (
-          <div className="text-center py-12">           
-            <BookOpen className="h-12 w-12 mx-auto text-gray-400 mb-4" />           
+          <div className="text-center py-12">
+            <BookOpen className="h-12 w-12 mx-auto text-gray-400 mb-4" />
             <h2 className="text-xl font-medium text-gray-600 mb-2">
               Nenhum curso disponível
             </h2>
@@ -396,11 +405,13 @@ export default function CoursesPage() {
             {cursos.map((curso) => (
               <Card key={curso.id} className="overflow-hidden flex flex-col border-gray-200">
                 <div className="h-3 bg-blue-600"></div>
-                <div className="aspect-video relative bg-blue-50 flex items-center justify-center">
-                  {renderIcone(curso.icone, "h-16 w-16 text-blue-500")}
-                </div>
                 <div className="p-5 flex-1 flex flex-col">
-                  <h3 className="text-xl font-semibold mb-2">{curso.titulo}</h3>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-2 bg-blue-50 rounded-lg">
+                      {renderIcone(curso.icone, "h-6 w-6 text-blue-500")}
+                    </div>
+                    <h3 className="text-xl font-semibold">{curso.titulo}</h3>
+                  </div>
                   <p className="text-gray-600 mb-4 line-clamp-3">
                     {curso.descricao}
                   </p>
@@ -429,38 +440,33 @@ export default function CoursesPage() {
                         <span>{curso.inscritos.length} inscritos</span>
                       </div>
 
-                      <div className="flex">
-                      {user.isAdmin && (
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="h-8 w-8 text-blue-600 cursor-pointer"
-                            onClick={() => handleEditCurso(curso)}
-                          >
-                            <Edit className="h-4 w-4" />
-                          </Button>
-                        )}
-
-                        {user.isAdmin && (
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            className="h-8 w-8 text-red-600 cursor-pointer"
-                            onClick={() => handleDeleteCurso(curso.id)}
-                          >
-                            <Trash className="h-4 w-4" />
-                          </Button>
-                        )}
+                      <div className="flex items-center gap-3">
                         <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => handleOpenCursoDetalhes(curso)}
-                          className="cursor-pointer border-blue-600 hover:bg-blue-200 text-blue-800"
+                          variant="ghost"
+                          size="icon"
+                          className="h-10 w-10 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100"
+                          onClick={() => handleOpenDoacaoModal(curso)}
                         >
-                          Acessar Curso
+                          <DollarSign className="h-5 w-5" />
                         </Button>
 
-                    
+                        {!isInscrito(curso) ? (
+                          <Button
+                            className="bg-blue-600 hover:bg-blue-700 text-white"
+                            onClick={() => handleInscreverCurso(curso)}
+                          >
+                            <Users className="h-4 w-4 mr-2" />
+                            Inscrever-se
+                          </Button>
+                        ) : (
+                          <Button
+                            className="bg-green-600 hover:bg-green-700 text-white"
+                            onClick={() => router.push(`/app/courses/${curso.id}`)}
+                          >
+                            <Award className="h-4 w-4 mr-2" />
+                            Entrar
+                          </Button>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -673,28 +679,31 @@ export default function CoursesPage() {
                     <span>{cursoSelecionado.inscritos.length} inscritos</span>
                   </div>
 
-                  <div className="flex gap-2">
+                  <div className="flex items-center gap-3">
                     <Button
-                      variant="outline"
-                      className="border-blue-500 text-blue-600 hover:bg-blue-50 cursor-pointer"
+                      variant="ghost"
+                      size="icon"
+                      className="h-10 w-10 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100"
                       onClick={() => handleOpenDoacaoModal(cursoSelecionado)}
                     >
-                      <DollarSign className="h-4 w-4 mr-2" />
-                      Fazer Doação
+                      <DollarSign className="h-5 w-5" />
                     </Button>
 
                     {!isInscrito(cursoSelecionado) ? (
                       <Button
-                        className="bg-blue-600 hover:bg-blue-700 text-white cursor-pointer"
+                        className="bg-blue-600 hover:bg-blue-700 text-white"
                         onClick={() => handleInscreverCurso(cursoSelecionado)}
                       >
                         <Users className="h-4 w-4 mr-2" />
                         Inscrever-se
                       </Button>
                     ) : (
-                      <Button disabled className="bg-gray-200 text-gray-600">
+                      <Button
+                        className="bg-green-600 hover:bg-green-700 text-white"
+                        onClick={() => router.push(`/app/courses/${cursoSelecionado.id}`)}
+                      >
                         <Award className="h-4 w-4 mr-2" />
-                        Inscrito
+                        Entrar
                       </Button>
                     )}
                   </div>
@@ -858,4 +867,4 @@ export default function CoursesPage() {
       </div>
     </AppLayoutWithoutSidebar>
   );
-}
+} 
