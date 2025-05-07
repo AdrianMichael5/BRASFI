@@ -65,24 +65,10 @@ export function Navbar() {
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center justify-end space-x-4 md:w-1/4">
             <Link href="/auth/login">
-<<<<<<< HEAD
-              <Button
-                variant="outline"
-                className="border-white bg-white text-green-800 hover:bg-green-50 hover:text-green-800 transition-all hover:scale-105 cursor-pointer"
-              >
-                Entrar
+              <Button className="text-green-500 hover:text-black transition-all hover:scale-105 flex items-center gap-2 cursor-pointer bg-white">
+                ACESSAR PLATAFORMA
+                <LogIn size={20} />
               </Button>
-            </Link>
-            <Link href="/auth/register">
-              <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium transition-all hover:scale-105 cursor-pointer">
-                Cadastrar
-              </Button>
-=======
-            <Button className="text-green-500 hover:text-black transition-all hover:scale-105 flex items-center gap-2 cursor-pointer bg-white">
-            ACESSAR PLATAFORMA
-            <LogIn size={20} />
-            </Button>
->>>>>>> f1aad95138ce8123ddc27a8c3270c57aa2721f9f
             </Link>
           </div>
           {/* Mobile Menu Button */}

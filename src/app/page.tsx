@@ -38,11 +38,7 @@ export default function Home() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
               FORMANDO LÍDERES E VIABILIZANDO SOLUÇÕES
             </h1>
-<<<<<<< HEAD
             <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium transition-all hover:scale-105 cursor-pointer">
-=======
-            <Button className="bg-white text-black font-medium cursor-pointer">
->>>>>>> f1aad95138ce8123ddc27a8c3270c57aa2721f9f
               CONHEÇA O BRASFI
             </Button>
           </div>
