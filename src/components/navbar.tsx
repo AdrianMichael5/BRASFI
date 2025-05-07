@@ -67,13 +67,13 @@ export function Navbar() {
             <Link href="/auth/login">
               <Button
                 variant="outline"
-                className="border-white bg-white text-green-800 hover:bg-green-50 hover:text-green-800 transition-all hover:scale-105"
+                className="border-white bg-white text-green-800 hover:bg-green-50 hover:text-green-800 transition-all hover:scale-105 cursor-pointer"
               >
                 Entrar
               </Button>
             </Link>
             <Link href="/auth/register">
-              <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium transition-all hover:scale-105">
+              <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-medium transition-all hover:scale-105 cursor-pointer">
                 Cadastrar
               </Button>
             </Link>
