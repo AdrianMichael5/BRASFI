@@ -28,6 +28,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "next.config.ts" // Certifique-se de que o next.config.ts está no include
-  ],
+, "src/app/app/courses/page.tsx.new", "src/app/app/courses/[id]/page.tsx.new"  ],
   "exclude": ["node_modules"]
 }
