@@ -195,12 +195,11 @@ export default function MyCoursesPage() {
                       </div>
 
                       <Button
-                        variant="outline"
-                        size="sm"
+                        className="bg-green-600 hover:bg-green-700 text-white"
                         onClick={() => router.push(`/app/courses/${curso.id}`)}
-                        className="cursor-pointer border-blue-600 hover:bg-blue-200 text-blue-800"
                       >
-                        Acessar Curso
+                        <Award className="h-4 w-4 mr-2" />
+                        Entrar
                       </Button>
                     </div>
                   </div>
