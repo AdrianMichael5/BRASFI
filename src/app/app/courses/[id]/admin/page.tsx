@@ -186,12 +186,18 @@ export default function AdminCursoPage({ params }: { params: { id: string } }) {
             >
               <ChevronLeft className="h-6 w-6" />
             </Button>
-            <h1 className="text-2xl font-bold">Gerenciar Curso: {curso.titulo}</h1>
+            <h1 className="text-2xl font-bold">
+              Gerenciar Curso: {curso.titulo}
+            </h1>
           </div>
           <Button
             onClick={() => setEditando(!editando)}
             variant={editando ? "destructive" : "default"}
-            className={editando ? "bg-red-600 hover:bg-red-700" : "bg-blue-600 hover:bg-blue-700"}
+            className={
+              editando
+                ? "bg-red-600 hover:bg-red-700"
+                : "bg-blue-600 hover:bg-blue-700"
+            }
           >
             {editando ? "Cancelar Edição" : "Editar Curso"}
           </Button>
@@ -202,7 +208,9 @@ export default function AdminCursoPage({ params }: { params: { id: string } }) {
           <div className="lg:col-span-2 space-y-6">
             {/* Informações do curso */}
             <Card className="p-6">
-              <h2 className="text-xl font-semibold mb-4">Informações do Curso</h2>
+              <h2 className="text-xl font-semibold mb-4">
+                Informações do Curso
+              </h2>
               <div className="space-y-4">
                 <div>
                   <label className="block text-sm font-medium mb-1">
@@ -232,7 +240,7 @@ export default function AdminCursoPage({ params }: { params: { id: string } }) {
                   />
                 </div>
                 {editando && (
-                  <Button 
+                  <Button
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white transition-colors"
                     onClick={() => setEditando(false)}
                   >
@@ -247,7 +255,7 @@ export default function AdminCursoPage({ params }: { params: { id: string } }) {
             <Card className="p-6">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-semibold">Aulas do Curso</h2>
-                <Button 
+                <Button
                   onClick={() => setEditando(!editando)}
                   className="bg-blue-600 hover:bg-blue-700 text-white transition-colors"
                 >
@@ -376,7 +384,8 @@ export default function AdminCursoPage({ params }: { params: { id: string } }) {
                 <div className="flex items-center gap-2">
                   <Video className="h-5 w-5 text-blue-600" />
                   <span>
-                    {curso.aulas?.length || 0} aula{curso.aulas?.length !== 1 && "s"}
+                    {curso.aulas?.length || 0} aula
+                    {curso.aulas?.length !== 1 && "s"}
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
@@ -387,8 +396,12 @@ export default function AdminCursoPage({ params }: { params: { id: string } }) {
                   <Clock className="h-5 w-5 text-blue-600" />
                   <span>
                     {formatarDuracao(
-                      curso.aulas?.reduce((acc, aula) => acc + aula.duracao, 0) || 0
-                    )} de conteúdo
+                      curso.aulas?.reduce(
+                        (acc, aula) => acc + aula.duracao,
+                        0
+                      ) || 0
+                    )}{" "}
+                    de conteúdo
                   </span>
                 </div>
               </div>
@@ -410,4 +423,4 @@ export default function AdminCursoPage({ params }: { params: { id: string } }) {
       </div>
     </AppLayoutWithoutSidebar>
   );
-} 
+}
