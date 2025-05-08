@@ -126,7 +126,7 @@ export default function MyCoursesPage() {
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">Meus Cursos</h1>
           <Button
-            onClick={() => router.push('/app/courses')}
+            onClick={() => router.push("/app/courses")}
             variant="outline"
             className="border-blue-600 text-blue-600 hover:bg-blue-50"
           >
@@ -141,10 +141,11 @@ export default function MyCoursesPage() {
               Você não está inscrito em nenhum curso
             </h2>
             <p className="text-gray-500">
-              Explore os cursos disponíveis e faça sua inscrição para começar a aprender.
+              Explore os cursos disponíveis e faça sua inscrição para começar a
+              aprender.
             </p>
             <Button
-              onClick={() => router.push('/app/courses')}
+              onClick={() => router.push("/app/courses")}
               className="mt-4 bg-blue-600 hover:bg-blue-700 text-white"
             >
               Ver Todos os Cursos
@@ -153,7 +154,10 @@ export default function MyCoursesPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cursos.map((curso) => (
-              <Card key={curso.id} className="overflow-hidden flex flex-col border-gray-200">
+              <Card
+                key={curso.id}
+                className="overflow-hidden flex flex-col border-gray-200"
+              >
                 <div className="h-3 bg-blue-600"></div>
                 <div className="p-5 flex-1 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
@@ -208,4 +212,4 @@ export default function MyCoursesPage() {
       </div>
     </AppLayoutWithoutSidebar>
   );
-} 
+}
