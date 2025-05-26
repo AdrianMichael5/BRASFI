@@ -141,7 +141,7 @@ export default function MyCoursesPage() {
               Você não está inscrito em nenhum curso
             </h2>
             <p className="text-gray-500">
-              Explore os cursos disponíveis e faça sua inscrição para começar a
+              Explore cursos disponíveis e faça sua inscrição para começar a
               aprender.
             </p>
             <Button
