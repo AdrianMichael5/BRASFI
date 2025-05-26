@@ -238,8 +238,12 @@ export default function CoursesPage() {
 
   // Função para abrir detalhes do curso
   const handleOpenCursoDetalhes = (curso: Curso) => {
-    setCursoSelecionado(curso);
-    setCursoDetalhesOpen(true);
+    if (isInscrito(curso)) {
+      router.push(`/app/courses/my-courses/${curso.id}`);
+    } else {
+      setCursoSelecionado(curso);
+      setCursoDetalhesOpen(true);
+    }
   };
 
   // Função para inscrever-se em um curso
@@ -461,7 +465,7 @@ export default function CoursesPage() {
                         ) : (
                           <Button
                             className="bg-green-600 hover:bg-green-700 text-white"
-                            onClick={() => router.push(`/app/courses/${curso.id}`)}
+                            onClick={() => router.push(`/app/courses/my-courses/${curso.id}`)}
                           >
                             <Award className="h-4 w-4 mr-2" />
                             Entrar
@@ -700,7 +704,7 @@ export default function CoursesPage() {
                     ) : (
                       <Button
                         className="bg-green-600 hover:bg-green-700 text-white"
-                        onClick={() => router.push(`/app/courses/${cursoSelecionado.id}`)}
+                        onClick={() => router.push(`/app/courses/my-courses/${cursoSelecionado.id}`)}
                       >
                         <Award className="h-4 w-4 mr-2" />
                         Entrar
