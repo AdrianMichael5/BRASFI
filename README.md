@@ -17,8 +17,29 @@ Bem-vindo ao  repositório da **BRASFI**! Este projeto tem como objetivo fornece
 ## 🛠️ Tecnologias Utilizadas
 
 - **Backend**: 🟦 TypeScript
-- **Banco de Dados**: 🚧 Em definição... 
-- **Frontend**: ⚡️ Next.js 
+- **Banco de Dados**: 🛢️ SQL
+- **Frontend**: ⚡️ Next.js
+- **Deploy**: ▲ Vercel
+
+## 🗂️ Entregas
+<details>
+
+<summary>📧 Sprints</summary>
+<br/>
+
+## 🏃‍♂️ Sprint 1
+
+![image](https://github.com/user-attachments/assets/01c122e2-69f7-4133-9b0f-208f21a43316)
+
+## 🏃‍♂️ Sprint 2
+
+![image](https://github.com/user-attachments/assets/4dc8dc08-b9ed-4bc3-9da8-209c781497b0)
+
+## 🏃‍♂️ Sprint 3
+
+![image](https://github.com/user-attachments/assets/2bea269c-51fb-4bc8-9f85-8d4cb42c1e18)
+
+</details>
 
 
 ## 🤝 Equipe
