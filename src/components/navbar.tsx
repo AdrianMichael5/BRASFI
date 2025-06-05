@@ -65,7 +65,7 @@ export function Navbar() {
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center justify-end space-x-4 md:w-1/4">
             <Link href="/auth/login">
-              <Button className="text-green-500 hover:text-black transition-all hover:scale-105 flex items-center gap-2 cursor-pointer bg-white">
+              <Button className="text-black hover:text-black transition-all hover:scale-105 flex items-center gap-2 cursor-pointer bg-white">
                 ACESSAR PLATAFORMA
                 <LogIn size={20} />
               </Button>
