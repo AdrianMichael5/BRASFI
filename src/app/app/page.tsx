@@ -45,7 +45,7 @@ const defaultPosts: Post[] = [
     id: "1",
     content:
       "Estamos felizes em anunciar nossa nova parceria com a Universidade Federal para o desenvolvimento de projetos sustentáveis! 🌱 #Sustentabilidade #NovasParceiras",
-    image: "/placeholder.svg?height=400&width=600&text=Anúncio+de+Parceria",
+    image: "/imagemfeed1.png?height=400&width=600&text=Anúncio+de+Parceria",
     createdAt: Date.now() - 3600000 * 2, // 2 horas atrás
     likes: 24,
     comments: 5,
@@ -60,7 +60,7 @@ const defaultPosts: Post[] = [
     content:
       "Confira as fotos do nosso último workshop sobre finanças sustentáveis! Foi um sucesso total com mais de 50 participantes. Agradecemos a todos que compareceram e contribuíram para as discussões. O próximo evento já está sendo planejado! 📊💰",
     image:
-      "/placeholder.svg?height=400&width=600&text=Workshop+Finanças+Sustentáveis",
+      "/imagemfeed2.png?height=400&width=600&text=Workshop+Finanças+Sustentáveis",
     createdAt: Date.now() - 86400000, // 1 dia atrás
     likes: 42,
     comments: 8,
@@ -220,21 +220,21 @@ export default function AppPage() {
                       <Button
                         variant="outline"
                         size="sm"
-                        className="flex items-center gap-2"
+                        className="flex items-center gap-2 cursor-pointer"
                       >
-                        <ImageIcon className="h-4 w-4" />
+                        <ImageIcon className="h-4 w-4 cursor-pointer" />
                         <span>Adicionar Imagem</span>
                       </Button>
                       <Button
                         onClick={handleCreatePost}
                         disabled={!newPostContent.trim() || isPostingLoading}
-                        className="flex items-center gap-2 border-2 text-white bg-blue-500 border-blue-500"
+                        className="flex items-center gap-2 border-2 text-white bg-blue-500 border-blue-500 cursor-pointer"
                       >
                         {isPostingLoading ? (
                           "Publicando..."
                         ) : (
                           <>
-                            <Send className="h-4 w-4" />
+                            <Send className="h-4 w-4 cursor-pointer" />
                             <span>Publicar</span>
                           </>
                         )}
