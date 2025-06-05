@@ -207,7 +207,7 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
             isAdmin: false,
           },
           image:
-            "/placeholder.svg?height=200&width=400&text=Coffee+Shop+Mockup",
+            "/sitecafebrasfi.png?height=200&width=400&text=Coffee+Shop+Mockup",
         },
         {
           id: "4",
@@ -382,7 +382,7 @@ export function ChannelFeed({ channel }: ChannelFeedProps) {
           <Button
             type="submit"
             size="icon"
-            className="bg-blue-500"
+            className="bg-blue-500 cursor-pointer"
             disabled={channel.isAnnouncement && !isUserAdmin()}
           >
             <Send className="h-4 w-4" />
