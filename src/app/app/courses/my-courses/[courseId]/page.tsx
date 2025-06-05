@@ -296,7 +296,7 @@ export default function CourseDetailsPage({ params }: { params: { courseId: stri
             </div>
             {/* Certificado */}
             {allLessonsCompleted && (
-              <Button className="mt-4 bg-green-600 hover:bg-green-700 text-white" onClick={() => setShowCertificate(true)}>
+              <Button className="mt-4 bg-green-600 hover:bg-green-700 cursor-pointer text-white" onClick={() => setShowCertificate(true)}>
                 Gerar Certificado
               </Button>
             )}
@@ -365,7 +365,7 @@ export default function CourseDetailsPage({ params }: { params: { courseId: stri
                   {/* Botão de concluído */}
                   <button
                     onClick={() => toggleCompleteLesson(course.modules[0].id, lesson.id)}
-                    className={`rounded-full border-2 w-7 h-7 flex items-center justify-center mr-2 ${lesson.completed ? 'border-green-500 bg-green-100' : 'border-gray-300 bg-gray-100'}`}
+                    className={`rounded-full border-2 w-7 h-7 cursor-pointer flex items-center justify-center mr-2 ${lesson.completed ? 'border-green-500 bg-green-100' : 'border-gray-300 bg-gray-100'}`}
                     title={lesson.completed ? 'Aula concluída' : 'Marcar como concluída'}
                   >
                     {lesson.completed ? (
@@ -384,7 +384,7 @@ export default function CourseDetailsPage({ params }: { params: { courseId: stri
                   {/* Botão play */}
                   <button
                     onClick={() => setSelectedLesson(lesson)}
-                    className="ml-2 text-blue-600 hover:text-blue-800"
+                    className="ml-2 text-blue-600 hover:text-blue-800 cursor-pointer"
                     title="Assistir aula"
                   >
                     <Play className="h-6 w-6" />
@@ -401,7 +401,7 @@ export default function CourseDetailsPage({ params }: { params: { courseId: stri
                     setAddLessonDialogOpen(true);
                   }}
                 >
-                  <Plus className="h-4 w-4 mr-2" /> Adicionar Aula
+                  <Plus className="h-4 w-4 mr-2 cursor-pointer" /> Adicionar Aula
                 </Button>
               )}
             </div>
