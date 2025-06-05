@@ -388,7 +388,6 @@ export function AdminPanel() {
                                 }
                               />
                             </td>
-                            {/* Removido o botão aqui */}
                           </tr>
                         ))}
                       </tbody>
