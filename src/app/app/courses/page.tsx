@@ -365,7 +365,7 @@ export default function CoursesPage() {
           <h1 className="text-2xl font-bold">Cursos</h1>
           <div className="flex gap-4">
             <Button
-              onClick={() => router.push('/app/courses/my-courses')}
+              onClick={() => router.push("/app/courses/my-courses")}
               variant="outline"
               className="border-blue-600 text-blue-600 hover:bg-blue-50"
             >
@@ -407,7 +407,10 @@ export default function CoursesPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {cursos.map((curso) => (
-              <Card key={curso.id} className="overflow-hidden flex flex-col border-gray-200">
+              <Card
+                key={curso.id}
+                className="overflow-hidden flex flex-col border-gray-200"
+              >
                 <div className="h-3 bg-blue-600"></div>
                 <div className="p-5 flex-1 flex flex-col">
                   <div className="flex items-center gap-3 mb-4">
@@ -465,7 +468,9 @@ export default function CoursesPage() {
                         ) : (
                           <Button
                             className="bg-green-600 hover:bg-green-700 text-white"
-                            onClick={() => router.push(`/app/courses/my-courses/${curso.id}`)}
+                            onClick={() =>
+                              router.push(`/app/courses/my-courses/${curso.id}`)
+                            }
                           >
                             <Award className="h-4 w-4 mr-2" />
                             Entrar
@@ -594,7 +599,11 @@ export default function CoursesPage() {
               </div>
 
               <div className="flex justify-end gap-2 mt-4">
-                <Button className="cursor-pointer" variant="outline" onClick={() => setDialogOpen(false)}>
+                <Button
+                  className="cursor-pointer"
+                  variant="outline"
+                  onClick={() => setDialogOpen(false)}
+                >
                   Cancelar
                 </Button>
                 <Button
@@ -704,7 +713,11 @@ export default function CoursesPage() {
                     ) : (
                       <Button
                         className="bg-green-600 hover:bg-green-700 text-white"
-                        onClick={() => router.push(`/app/courses/my-courses/${cursoSelecionado.id}`)}
+                        onClick={() =>
+                          router.push(
+                            `/app/courses/my-courses/${cursoSelecionado.id}`
+                          )
+                        }
                       >
                         <Award className="h-4 w-4 mr-2" />
                         Entrar
@@ -871,4 +884,4 @@ export default function CoursesPage() {
       </div>
     </AppLayoutWithoutSidebar>
   );
-} 
+}
