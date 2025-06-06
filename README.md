@@ -6,7 +6,10 @@ Bem-vindo ao  repositório da **BRASFI**! Este projeto tem como objetivo fornece
 
 [![Vercel](https://img.shields.io/badge/BRASFI-00AA00?style=for-the-badge&logo=vercel&logoColor=white)](https://brasfi.vercel.app/)
 
-[![Google Site](https://img.shields.io/badge/GoogleSite-008000?style=for-the-badge&logo=Google&logoColor=white)](https://sites.google.com/cesar.school/grupo14brasfi/)
+[![Google Site](https://img.shields.io/badge/Google_Site-008000?style=for-the-badge&logo=Google&logoColor=white)](https://sites.google.com/cesar.school/grupo14brasfi/)
+
+[![Google Drive](https://img.shields.io/badge/Google_Drive-00AA00?style=for-the-badge&logo=GoogleDrive&logoColor=white)](https://drive.google.com/drive/folders/1lChaI16fxjR15Sfx1tZGH9VV2gyO84uj?usp=drive_link)
+
 
 ## 🚀 Funcionalidades
 
