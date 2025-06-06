@@ -6,6 +6,8 @@ Bem-vindo ao  repositório da **BRASFI**! Este projeto tem como objetivo fornece
 
 [![Vercel](https://img.shields.io/badge/BRASFI-00AA00?style=for-the-badge&logo=vercel&logoColor=white)](https://brasfi.vercel.app/)
 
+[![Google Site](https://img.shields.io/badge/GoogleSite-008000?style=for-the-badge&logo=Google&logoColor=white)](https://sites.google.com/cesar.school/grupo14brasfi/)
+
 ## 🚀 Funcionalidades
 
 ✔️ **Canal de comunicação** 📢 - Chat e interações entre os membros e apoiadores da BRASFI.  
